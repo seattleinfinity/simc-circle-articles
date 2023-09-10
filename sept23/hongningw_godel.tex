@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\title{No one can discover all of math}
+\author{Hongning Wang}
+\date{September 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Article}
+Just as physicists hope to discover a Theory of Everything today, mathematicians in the $1900$s sought to identify a mathematical framework that explains, however tediously, all of mathematics. Unfortunately, mathematician Kurt Gödel's incompleteness theorems, published in $1931$, broke apart this dream, demonstrating that no framework can plausibly explain every mathematical truth. 
+
+Gödel essentially showed this astonishing result with one key claim: 
+
+$\textbf{Claim:}$ The logical statement $\textbf{This truth cannot be proven}$ is true but unproveable.
+
+To understand Gödel's method, this article will demonstrate Gödel's result in the context of arithmetic, i.e. arithmetic cannot prove every numerical truth. 
+
+Gödel's first puzzle was to turn logical expressions of truth, which utilize arithmetic operators, into numbers, the heart of arithmetic. Otherwise, he possessed no method to describe arithmetic using arithmetic itself, the basis of his claim. 
+
+To do so, Gödel created the Gödel numbers, which sets a positive integer to represent each operator. For instance, one specific numbering can map there exists ($\exists$) to $1$, equals (=) to $2$, $0$ to $3$, successor ($+1$) as $4$, open parentheses to $5$, closed parentheses as $6$, variables as numbers greater than $10$, and assign the remaining integers from $1$ to $10$ to other arithmetic operators. Now, any logical statement can be broken up into a unique series of numbers $g_n$. For example, "There exists $x$ equalling the successor of $0$" ($\exists x = S0)$ can be turned into the sequence $1, 11, 2, 4, 3.$
+
+Defining $p_n$ to be the sequence of prime numbers ($p_0 = 2$, $p_1 = 3$, etc.), Gödel transformed any logical sequence into a unique number \[G = \sum_{i} p_i g_i\]. The statement in the previous paragraph would become $2^1 \times 3^{11} \times 5^2 \times 7^4 \times 11^3$. Since every integer has a unique prime factorization, every number corresponds to an unique logical expression. 
+
+Now, Gödel used a clever trick. For any truthful arithmetic statement with Gödel value $x$, and let $f(x)$ be the Gödel number after replacing any operator with Gödel number $11$ (variable $x$) in the statement with $x$. Consider the statement \[f(x) \text{ cannot be proven} \] and let its Gödel number be $C$. Gödel's key realization is that $``f(C) \text{ cannot be proven}"$ has Gödel number $G=f(C)$ by definition of $f$. Therefore, any logical statement $G$ is equivalent to itself not being able to be proven, proving its truthfulness by virtue of existence. 
+
+However, the key conundrum here is that if $G$ were able to be proven, then $G$ would be false, a contradiction, so $G$ must be unproveable. This demonstrates that no mathematical framework has sufficient axioms to describe every truth, completing Gödel's result. 
+
+Gödel's work shook the mathematics world in the $20$th century. Beyond mathematics, it also showed that computational algorithms and various physics techniques were also limited. However, while we cannot know everything, we can be certain that there is still much more to be discovered and explored in mathematics.
+
+\end{document}

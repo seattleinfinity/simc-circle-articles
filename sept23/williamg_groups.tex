@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{SIMC Magazine Submission (Group Theory)}
+\author{William Gvozdjak}
+\date{June 2023}
+
+\begin{document}
+
+\maketitle
+
+Let's say we have a triangle. What's more, let's make all three sides of the triangle have the same length--it's \emph{equilateral}. Now, remember how we learned \emph{transformations} ages and ages ago? We're going to look at the transformations that preserve the triangle.
+
+Specifically, we're going to think about rotations and reflections. Remember, a rotation is when we simply turn the triangle around its center, and a reflection is when we flip the triangle over. If we want to leave the triangle untouched after our transformation, then we're going to have six total different ways:
+\begin{enumerate}
+    \item Do nothing,
+    \item Rotate counterclockwise $120^\circ$,
+    \item Rotate counterclockwise $240^\circ$,
+    \item Reflect across vertical axis,
+    \item Reflect across axis that is slanted upwards\label{enumitem: reflect slanted upward},
+    \item Reflect across axis that is slanted downwards.
+\end{enumerate}
+
+But what makes group theory special is that the elements of a group are never, ever specific to a special case. Namely, instead of saying that ``rotate counterclockwise $120^\circ$,'' we're going call it $r$. Then, what's rotating $240^\circ$? Well, it's the same as rotating by $120^\circ$ and then another $240^\circ$ again, so we're going to call it $r^2$. We call reflecting across the vertical axis $s$. Then, what's reflecting across the axis that is slanted upwards? It turns out that, if we work it out, it's the same as first rotating counterclockwise by $120^\circ$, and then reflecting across the vertical axis. As a result, we're going to call item~\ref{enumitem: reflect slanted upward} as $rs$. Reflecting across the axis that is slanted downwards because $r^2s$ (check this yourself!). Finally, we're just going to call ``doing nothing'' as $1$, a special item that we'll talk more about later. If we take everything that we just listed: $1$, $r$, $r^2$, $s$, $rs$, and $r^2s$, they are the elements of the group $D_3$. We call this a \emph{dihedral group}, which means that they are the symmetries of a regular polygon (in this case, a regular $3$-gon, or an equilateral triangle).
+
+Now, you're probably asking: why on earth would use use this strange notation, when we could just simply directly talk about whatever we're using (in this case, an equilateral triangle)? There are two main answers for this. First, using the notation is just easier. We don't want to have to say ``rotate counterclockwise $120^\circ$'' every time we talk about it--it's just much easier to say ``$r$.''
+
+But also, using this abstract notation doesn't constrain us nearly as much: what if we wanted to use a group in some other context, that is \emph{not} for a regular polygon? In other words, using abstract notation allows us to say extremely \emph{general} things about a group, and then we can \emph{apply} them to special cases really, really easily!
+
+Speaking of abstraction, I'd say that it's about time to get the formal definition of a group. Now, this may look really scary, but remember: all that we're trying to do here is to somehow take what we had with the symmetries of a triangle, and make it more \emph{general}.
+
+The most important part of a group is its \emph{set}. If you don't remember, a set is just a bunch of objects put together in one place. So in the context of the dihedral group $D_3$ that we talked about, our set is $\{1, r, r^2, s, rs, r^2s\}$: all of the different symmetries of an equilateral triangle.
+
+The second, important component of a group is a \emph{binary operation}. What is this? It's just something that takes in two objects, and spits one object back out. Going back to the dihedral group example again, the binary operation would be combining two symmetries. For example, if we combine $r$ (rotation by $120^\circ$) and $r^2$ (rotation by $240^\circ$), we end up with a rotation by $360^\circ$--which is just the same as doing nothing! Therefore, our binary operation in $D_3$ applied on $r$ and $r^2$ would spit out the element $1$. This binary operation is called \emph{composition}: we \emph{compose} two elements of the group by combining them to get a third element of the group.
+
+Now, we can't just take any random set and any random binary operation. They need to satisfy some rules! We call these rules \emph{axioms}. If our set and binary operation do follow these axioms, then we are safe to say that we have a valid group.
+
+The first axiom is that the binary operation is \emph{associative}. What does this mean? Let's say that our binary operation was multiply ($\cdot$): we multiply two elements of our group, and it results in a third element. The associativity rule means that if we have three elements $a$, $b$, and $c$ in the group, then $(a\cdot b)\cdot c=a\cdot (b\cdot c)$. In other words, our operation $\cdot$ plays nice with parenthesis.
+
+The second axiom is that there exists the \emph{identity element}. The identity element is an element in the group that doesn't change any other element when we multiply the two together. Specifically, if our binary operation is $\cdot$, then some element $a$ is the identity element only if $a\cdot b=b$ for every element $b$ in the group: multiply by $a$ keeps $b$ the same! Remember that weird element $1$ in our dihedral group $D_3$? That was our identity element there: if we compose any transformation with doing nothing, we're just left with the original transformation!
+
+The third and final axiom is the existence of \emph{inverses}. This says that you can always ``undo'' an element of the group. For example, in the dihedral group $D_3$, we can undo the element $r$ (rotating by $120^\circ$) by multiplying by $r^2$ (rotating by $240^\circ$), since composing $r$ with $r^2$ just gives us the identity element, $1$ (doing nothing)! Formally, this is the same as saying: for every element $a$ in the group, there always exists an element $b$ such that the composition of $a$ and $b$ is just the identity--$a\cdot b=1$.
+
+It turns out that this is everything we need to define a group! Using this definition, we're able to build a massive field of mathematics on top of it, called \emph{group theory}. There are groups for all kinds of symmetries: permutations, transformations, numbers, and everything in between. I encourage you to keep exploring group theory, because it's a really fascinating field, and it's super important for pretty much anything in math these days.
+
+\end{document}
