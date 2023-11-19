@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Analyzing Decisions with Expected Value}
+\author{William Gvozdjak}
+\date{November 2023}
+
+\begin{document}
+
+\maketitle
+
+Let's say we're taking the AMC. Each problem is worth 6 points if you get it correct, 1.5 points if you skip it, and 0 points if you get it wrong. There is one minute left, and there is one problem left that you haven't read. What should you do: randomly guess on the problem, or just leave it blank?
+
+Intuitively, it feels right to skip it. After all, you're guaranteed 1.5 points if you just leave it blank! Even though there's still that small chance that we get it right if we guess on the problem, it still doesn't really feel worth it. Can we formalize this intuition into something where we can definitively say ``yes, it's better to skip''?
+
+The answer lies in \emph{expected value}. The expected value of an event is kind of like an ``average'' of all of the outcomes: it's what you expect to come out of the event with. To calculate the expected value of a random variable, we look at every single possible outcome, and multiply the value of the outcome by its probability. Then, we sum all these values together.
+
+Let's look at an example: the AMC problem we were just looking at. Suppose that we guess option B. We start by looking at each possible outcome: the correct answer can be A, B, C, D, or E. If the correct answer is option A, then our outcome is a wrong answer--0 points. There's a $\frac{1}{5}$ chance that A is actually correct, so this contributes $0\cdot\frac{1}{5}=0$ to our expected value.
+
+Next, we look at option B. Again, there's a $\frac{1}{5}$ chance that B is correct, but now its value is $6$--we'd get it right, since we chose option B! This contributes $6\cdot\frac{1}{5}=1.2$ to our expected value.
+
+Any of options C, D, or E behave the same as option A. There's a $\frac{1}{5}$ chance that any of them are the correct answer, and each time, it gives us $0$ points, contributing $0$ to our expected value. Therefore, our total expected value is $0+1.2+0+0+0+0=1.2$.
+
+Now, let's look at the expected value of leaving the problem blank. There's only one outcome in this case: we leave it blank! In this case, the probability is $1$, and the corresponding value is $1.5$, so the total expected value is $1\cdot 1.5=1$.
+
+As we can see, the expected points that we earn from leaving the problem blank, $1.5$, is greater than the expected points that we earn from guessing, $1.2$. Therefore, mathematically, we should skip the problem, matching out intuition.
+
+So, when should we guess on an AMC problem? We can find this again with expected value! If we're able to eliminate one answer choice, then the probability that each of the remaining answer choices is correct goes up to $\frac{1}{4}$. Only one of the answer choices will contribute a nonzero amount of points, which is the correct answer, contributing $6$ points. As a result, the expected number of points is $6\cdot\frac{1}{4}=1.5$, exactly the same as the number of expected points if we skip. Therefore, if you can eliminate one answer choice, then, mathematically speaking, it shouldn't really matter whether you guess or not.
+
+But what happens if we can eliminate two answer choices? Then the probability goes up to $\frac{1}{3}$. Because of this, the expected number of points if you guess goes up to $\frac{1}{3}\cdot 6=2$--larger than the expected points if you skip! So, mathematically, you should guess when you can eliminate two or more answer choices. Of course, in practice, you should use your judgement to determine whether it is worth it to guess or not--after all, there is still the chance that you come out of guessing with zero points.
+
+Expected value has a variety of nice properties that make it an extremely beautiful mathematical concept that we couldn't discuss in this introduction. Together, all of these features make expected value a remarkably powerful technique, both in evaluating choices in daily life and in pure mathematics.
+\end{document}

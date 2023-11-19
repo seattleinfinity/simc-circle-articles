@@ -1,0 +1,189 @@
+\ProvidesPackage{simcmag}
+% \NeedsTeXFormat{LaTeX2e}
+
+%******* 	Declaration of options *****
+% if ever needed I guess -EY
+%******* 	Execution of options   *****
+% if ever needed I guess -EY
+
+%****** 	Package Loading   *****
+\usepackage{yfonts}  % used for the paper title font
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{todonotes}
+\usepackage{multicol}
+\usepackage[hidelinks]{hyperref}
+\usepackage{picinpar}
+\usepackage{todonotes}
+\usepackage{epigraph}
+\usepackage{tcolorbox}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{ifthen}
+\usepackage{setspace}
+\usepackage{everypage}
+
+%% Good urls - William F
+\usepackage{url}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{xurl}
+
+\usepackage{lipsum}
+\usepackage{asymptote} %uh, we didn't have asy so i added it hope it's okay -cece
+\usepackage{xcolor} %-cece
+\usepackage[inkscapearea=page, inkscapeformat=png]{svg} % For the chilis
+
+
+% Chilis! - William F
+% Thanks Marvin for the svg
+% Repeat something n times (https://tex.stackexchange.com/questions/16189/repeat-command-n-times)
+\usepackage{expl3}
+\ExplSyntaxOn
+\cs_new_eq:NN \Repeat \prg_replicate:nn
+\ExplSyntaxOff
+
+% Chili icons
+\newcommand{\chili}[1]{%
+  \begingroup\normalfont
+  \Repeat{#1}{
+    \includesvg[height=12pt]{../assets/chili_icon.svg} % Requires svg package
+    \hspace{-8pt} % Kinda hacky but just reduces space between chilis
+  }
+  \endgroup
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Article structure:
+%%    \articletitle{title}{author}{subtitle}
+%%    (optional) \subheader{header}...
+%%    \closearticle
+%%
+%% Use \clearcolumn if there is too little space to start the next article in the
+%%   same column. This should be used only occasionally, it's similar to \clearpage.
+
+\AddEverypageHook{\raisebox{1in}[0pt][0pt]{\hypertarget{pagetop.\thepage}{}}}
+\newcommand{\phantompageref}{\def\@currentHref{pagetop.\thepage}}
+\newcommand\articletitle[3]{
+  \begin{center} 
+  \vspace{5mm}
+  {\sc\Large #1} \par
+  {#3} \par
+  \vspace{3mm}
+  {\footnotesize\bf By \MakeUppercase{#2}} 
+  \end{center} \par
+  \phantompageref
+  \addcontentsline{toc}{section}{#1}
+}
+\newcommand\closearticle{
+  \begin{center}
+  \rule[6pt]{\hsize}{1pt}\vspace*{-16pt}
+  \rule{\hsize}{0.5pt}
+  \end{center}
+}
+\newcommand\subheader[1]{
+  \vspace{3mm}
+  \noindent{\sc\textbf{#1}}
+  \vspace{1.5mm}
+}
+\newcommand\clearcolumn{
+  \vfill\null
+  \columnbreak
+}
+
+%% End of article structure:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% William did this - Make text not fully justified
+% \usepackage{ragged2e}
+% \setlength{\RaggedRightParindent}{\parindent}
+% \RaggedRight
+%% EY: I commented this out. fully justified looks better :P
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Magazine formatting & layout 
+
+% Dots on Table of Contents
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% Font sizes and header for the table of contents
+\renewcommand{\cftsecfont}{\small}
+\renewcommand{\cftsecpagefont}{\small}
+\renewcommand{\contentsname}{\hspace{30mm} \large Contents}
+
+% Font for page title
+
+\DeclareFontFamily{LYG}{bigygoth}{}
+\DeclareFontShape{LYG}{bigygoth}{m}{n}{<->s*[2.5]ygoth}{}
+
+% Dimensions  
+\setlength\topmargin{-48pt} 		% article default = -58pt
+\setlength\headheight{0pt}  		% article default = 12pt
+\setlength\headsep{34pt}		% article default = 25pt
+\setlength\marginparwidth{-20pt}	% article default = 121pt
+\setlength\textwidth{7.0in}		% article default = 418pt
+\setlength\textheight{9.5in}		% article default = 296pt
+\setlength\oddsidemargin{-30pt}
+
+% Counters for volume number
+\newcounter{volume}
+\newcommand\currentvolume[1]{\setcounter{volume}{#1}}
+
+% Common magazine elements
+\def\@papername{The Circle}
+\def\@headername{\@papername}
+\def\@papercredits{\simcmagcredits}
+\def\@paperslogan{\includegraphics[width=1.7in]{img/logo-circled.png}}
+\def\@paperorg{Seattle Infinity Math Circle}
+
+% Redefine \maketitle
+\renewcommand{\maketitle}{
+  \thispagestyle{empty}
+  \begin{center}
+  { % the circle to the left of paper title
+    \setlength\fboxsep{3mm}\raisebox{12pt}{
+      \parbox[c]{1in}{\begin{center}\small \@paperslogan\end{center}}
+    }
+  }
+  \hfill%
+  { % the paper title
+    \textgoth{\Huge \usefont{LYG}{bigygoth}{m}{n} \;\;\@papername}
+  }
+  \hfill%	
+  \raisebox{-12mm}{\tiny \@papercredits} % the box to the right of paper title
+  \vspace*{0.1in}
+  % next is the volumn/date/name between two lines, below the paper title
+  \rule[0pt]{\textwidth}{0.5pt}
+  {
+    \small VOL. \MakeUppercase{\roman{volume}}}
+    \hfill
+    \MakeUppercase{\small\@date}
+    \hfill 
+    {\small\MakeUppercase{\@paperorg}
+  }
+  \rule[6pt]{\textwidth}{0.5pt}
+  \end{center}
+  \pagestyle{plain}
+}
+
+% Page header/footer after the first page
+\renewcommand{\ps@plain}{%
+  \renewcommand\@oddfoot{}%					% empty recto footer
+  \let\@evenfoot\@oddfoot						% empty verso footer
+  \renewcommand\@evenhead
+  {
+    \parbox{\textwidth}{
+      \vspace*{4pt}
+      {\small VOL. \MakeUppercase{\roman{volume}}}
+      \hfill
+      \normalfont\textbf{\@headername}
+      \hfill\textrm{\thepage}
+      \rule{\textwidth}{0.5pt}
+      \vspace*{12pt}
+    }
+  }
+  \let\@oddhead\@evenhead
+}
+		
+%%%%%%%%%%%%%%%%%%%% End of Package   %%%%%%%%%%%%%%%

@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\title{Characteristic polynomials}
+\author{Hongning Wang}
+\date{October 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Article}
+While solving problem $20$ on this year's AMC $12$A, I, along with many others quickly derived the recurrence relation $c_n = 2c_{n-1}+n-2$, $c_1 = 1$ where $c_n$ represents the sum of the elements of the $n$th row. However, the question did not just ask for a recursion; it requested the value of $c_{2023} \pmod{10}.$ While my friends guessed the solution, or engineers inducted, I proceeded with a standard method: Characteristic Polynomials.
+
+To start off, we require some big words that can be skimmed in a first reading. The main idea of this approach is that recurrences of the form $c_n = A\cdot c_{n-1} + B \cdot c_{n-2} + C \cdot c_{n-3} \dots + f(n)$ for constants $A, B, C, \dots$ are satisfied by exponential solutions when $f(n) = 0$. Also, all these recurrence relations obey the superposition principle. In other words, if linearly independent $b_1, b_2, b_3 \dots b_k$ are particular solutions to $c_n$, then the general form of $c_n$ is a linear combination of $b_1, b_2, b_3 \dots b_k$.
+
+With the complex jargon out of the way, let's first handle the homogeneous case, where $f(n) = 0.$ 
+
+This is best explained through example. Let's derive the closed form equation of the recurrence $f_n = 8f_{n-1} + 9f_{n-2}$ where $f_1 = 4$ and $f_2 = 32$, a key step in problem $4$ from the $2018$ USAJMO. Knowing that the particular solutions are exponential, we guess the solution to be of the form $f_n = \lambda^n$ for constant $\lambda.$ Now, the recurrence becomes \[\lambda^n = 8\lambda^{n-1} + 9\lambda^{n-2} \Longleftrightarrow \lambda^2 - 8 \lambda - 9 = 0\]. Accordingly, the recurrence is satisfied when $\lambda = 9, -1$ or equivalently when $f_n = 9^n$ and when $f_n = (-1)^n.$ By the superposition principle, the general solution is $f_n = A \cdot 9^n + B \cdot (-1)^n.$ The values of $A$ and $B$ may be found from the initial conditions, and are left as an exercise to the reader. 
+
+Indeed, the general procedure for a homogeneous recurrence is to set the solution as $f_n = \lambda^n$ and apply the superposition principle with the initial cases. 
+
+Now, what happens if $f(n)$ is not zero, but a polynomial? Certainly, it is sometimes possible to use algebraic tricks to create a homogeneous relation. However, a sneaky method is to identify a polynomial solution to the recurrence. This solution would be the only non-exponential solution to the recurrence. Hence, by the superposition principle, the general solution is a linear combination of the homogeneous solution (pretend $f(n) = 0$) and this polynomial solution.
+
+As an example, let's return to the initial recurrence $c_n = 2c_{n-1} + n-2.$ If we were to use algebraic manipulation, we must eliminate $n-2$ from the recurrence. For instance, we may apply 
+\begin{align}
+    c_{n-1} &= 2c_{n-2} + n-3 \\
+    c_{n} &= 2c_{n-1} + n-2 \\
+    c_{n+1} &= 2c_{n} + n-1 
+\end{align}
+Now, $(3) + (1) - 2 \cdot (2)$ yields $c_{n+1}-4c_{n}+5c_{n-1}-2c_{n-2} = 0$ which is homogeneous. Setting $c_n = \lambda^n$ yields $\lambda^3 - 4\lambda^2 + 5\lambda -2 = 0 \Longleftrightarrow (\lambda - 2)(\lambda-1)^2 = 0$, so $\lambda = 1,1,2$. With the double root (triple, quadruple, etc. roots work similarly), we invoke the general theory of recurrence relations to say that the particular solutions are $n(1)^n$ and $1^n$; the other particular solution is $2^n.$ As such, $c_n = A2^n + Bn(1)^n + C1^n$. Solving for the specific constants is left to the reader. 
+
+Finally, we conclude by presenting an application of the sneakier method. We note that the degree of any polynomial solution must be less than or equal to $1$; otherwise, the degree of the RHS exceeds that of the LHS. Therefore, if the polynomial solution is $c_n = Dn + E$, we may obtain $D = -1, E = 0.$ 
+
+For the homogeneous version, we have $c_n = 2c_{n-1}$ which solves to the particular case of $c_n = 2^n$. The general solution is therefore $c_n = A\cdot 2^n + B(-n).$ Solving for the constants is left to the reader.
+
+Curiously enough, the process to solve linear differential equations is almost identical to the methods presented in this article. 
+
+\end{document}
