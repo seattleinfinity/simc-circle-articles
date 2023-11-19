@@ -14,7 +14,7 @@ Of all the techniques used to solve computational contest problems, recursion is
 \textbf{Single-parameter recursion}
 The simplest of recursions are those that rely on only one variable. Here's an example from the \textit{2007 AMC 12A}:
 
-\textit{Call a set of integers spacy if it contains no more than one out of any three consecutive integers. How many subsets of $\{1,2,3,\ldots,12\},$ including the empty set, are spacy?}
+Call a set of integers spacy if it contains no more than one out of any three consecutive integers. How many subsets of $\{1,2,3,\ldots,12\},$ including the empty set, are spacy?
 
 At a high level, the formula for recursion problems is:
 \begin{enumerate}
@@ -33,7 +33,7 @@ $$f(n) = f(n - 1) + f(n - 3).$$Why is this true? Let's imagine that we're constr
 And with that, we have written $f(n)$ in terms of itself, evaluated at smaller parameters. We'll often find ourselves doing this sort of casework to break down the recurrence relation.
 
 Now all that remains is a straightforward computation of $f(12)$. I like to start by evaluating $f(1), f(2)$, etc. and work my way up, keeping my previous computations \textit{cached} in a table. For instance, here's what the table would look like for while computing $f(6)$ (clipped):
-\begin{table}[h!]
+\begin{table}
     \centering
     \begin{tabular}{c|c|c|c|c|c|c|c}
          $n$ & 1 & 2 & 3 & 4 & 5 & 6 & \dots \\\hline
@@ -88,7 +88,9 @@ The exact same technique can be used on problem 16 from the 2011 AMC 12A:
 \end{quote}
 Try to use multi-parameter recursion to solve this problem!
 
-\textbf{Conclusion} Approaching problems with recursion has given me a more methodical and robust problem-solving strategy; it's helped reduce casework and computation while increasing confidence in my answer.
+\textbf{Conclusion}
+
+Approaching problems with recursion has given me a more methodical and robust problem-solving strategy; it's helped reduce casework and computation while increasing confidence in my answer.
 
 In addition to contest math, recursion is an extremely useful concept in \textit{competitive programming} as well, in the form of \textit{dynamic programming}\footnote{\url{https://en.wikipedia.org/wiki/Dynamic\_programming}}. The scale of function parameters is much larger in programming problems, but the core principle of finding a function, figuring out its recurrence relation, and computing the answer.
 \end{document}

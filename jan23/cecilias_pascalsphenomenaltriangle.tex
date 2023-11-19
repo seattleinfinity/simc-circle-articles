@@ -13,6 +13,7 @@ Everyone knows about Pascal’s peculiar triangle --- start with a row (this wil
 Pascal’s playful triangle has enthralled mathematicians all over the world for centuries, and for good reason --- there are all sorts of patterns and mysteries encoded in this pretty-famous triangle! Here are just a few:
 
 \textbf{Picking things}
+
 Recall that the binomial coefficient 
 \[
 	\binom nk
@@ -26,6 +27,7 @@ Because we get each entry by adding the two entries on top of it, we can now ded
 \[\binom nk=\binom{n-1}{k-1}+\binom{n-1}k.\]
 
 \textbf{Paths}
+
 Say I have a pet ant named \textit{Ant}hony. 
 
 I place Anthony on the topmost $1$ of the triangle, and instruct him to travel downwards atop the entries: every second, Anthony moves down a row, but he can only move downwards and to the two numbers directly below the number he is currently on.
@@ -36,6 +38,7 @@ Why is this true?
 Well, for every number, there were two numbers that Anthony could have been at a second before; thus, the number of possible ways he could have gotten to his current number is the sum of those two numbers. Wait\dots This is exactly how we construct Pascal's triangle!
 
 \textbf{Binomial Expansions}
+
 %insert quirky image nvm
 When we expand binomials, such as $(x+1)^n$, the coefficients are the entries in the $n$th row of the triangle! 
 
@@ -70,6 +73,7 @@ For example, going from $n=3$ to $n=4$ looks like this:
 It looks like we're really just adding the adjacent entries of the previous rows to get the new rows\dots This is also how we generate new rows of Pascal's triangle! 
 
 \textbf{Fibonacci's triangle?!}
+
 The Fibonacci sequence is also hidden in Pascal's triangle! Let's move all the entries to the left, then sum each diagonal, as so:
 
 \begin{center}
