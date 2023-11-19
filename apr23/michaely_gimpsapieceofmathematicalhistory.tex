@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{GIMPS: A Piece of Mathematical History}
+\author{Michael Yang}
+
+\begin{document}
+
+\maketitle
+Many of us have grown to know and love the powers of two – after all, they’re ubiquitous in both math and computer science. As such, they have also been extensively studied. For example, take a moment to ponder the following question: how many integer powers of two are prime?
+
+Well, okay. Yes, the answer is zero. But consider the sequence of positive integers that are one \textit{less} than a power of two – $1$, $3$, $7$, $15$, … – and the question suddenly takes on a new layer of complexity. How many of these new numbers are prime? Are there infinitely many of them?
+
+As it turns out, merely subtracting one from each of the powers of two makes a trivial problem much harder: to date, mathematicians can’t determine if there are infinitely many primes in this sequence! In fact, the primes that \textit{do} appear – $3$, $7$, and $31$, for example – get a special name: \textit{Mersenne Primes}. Named after the French mathematician Marin Mersenne, who first studied them in the 17th century, these primes have been notoriously elusive: we only know $51$ of them! While we can place some constraints on our search – for example, $2^n-1$ is prime only if $n$ itself is prime – most of the modern-day checking still relies on brute force.
+
+Enter GIMPS: the \textbf{Great Internet Mersenne Prime Search}. GIMPS utilizes a concept known as \textit{distributed computing}: instead of hosting all the computation on one big Internet server (which would likely be quite slow), you can download GIMPS on your \textit{individual} machine. GIMPS then takes advantage of your spare CPU computing power; when many people do this at once, the collective computational strength of GIMPS is extremely high.
+
+Here’s how it works. Installing GIMPS amounts to downloading a piece of software on your computer. GIMPS’ assignment algorithms then assign you one of two tasks: \textit{testing}, where you’re given a number to test the primality of, or \textit{verification}, where you verify the results of a previously-computed number.  While the second task might sound less glamorous, it is equally essential; when dealing with numbers this large (two to the powers of millions), computational errors inevitably arise. 
+
+Once you’re assigned a task, your CPU starts testing primality using advanced, computationally efficient algorithms (i.e. the PRP and Lucas-Lehmer tests). Due to the size of the numbers involved, this process can take several days; when finished, GIMPS syncs your test to its online server and gives you a new task. The entire process is completely automated – and it works, too. In fact, the last fifteen Mersenne primes have all been discovered by GIMPS! The largest one to date is the incredible $2^{82589933}-1$, discovered by Patrick Laroche in December 2018. In fact, the discovery of this prime received incredible news coverage, ranging from articles published by the New York Times to YouTube videos made by prominent math communicators.
+
+If you have some spare CPU space to donate and want a chance to make some history on the side, GIMPS might be just the thing for you!
+ 
+\textit{This article was written without the sponsorship of GIMPS.}
+\end{document}

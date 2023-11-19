@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Combinatorial Games and Nim-Values}
+\author{William Gvozdjak}
+
+\begin{document}
+
+\maketitle
+Let's play a game. There's a pile of $20$ coins, and we take turns removing coins. In each turn, you can either remove $1$ or $2$ coins from the pile, and the player to remove the last coin wins. You'll go first. Who do you think will win?
+
+To tackle this problem, we'll first work on smaller cases. What if we started with only $1$ coin? Then you'll clearly win; you'll simply remove that coin and the game is over. Such a position where the first player to play is guaranteed to win is known as a \textbf{winning position}. Similarly, $2$ coins is also a winning position: you will just remove both those coins.
+
+What if we instead had $3$ coins? If you remove $1$ coin, then I would receive $2$ coins, and I would win. If you remove $2$ coins, I would receive $1$ coin, and I'd still win. In other words, no matter what you choose to do, I would receive a winning position, and hence win. Such a position is called a \textbf{losing position}: the first player to play is guaranteed to lose.
+
+Let's continue to work backwards. Start with $4$ coins. What should you do? Well, if you want to win, then you want me to lose. In other words, you want to give me a losing position: as $3$ coins is a losing position, you should remove $1$ coin from the pile! Therefore, $4$ is a winning position. Similarly, $5$ coins is a winning position: if we start with $5$ coins, you can remove $2$ coins, giving me a losing position. But $6$ coins is a losing position: no matter how many coins you remove, I'll receive a winning position (as both $4$ and $5$ coins are winning positions).
+
+Here, we're starting to notice a pattern: every multiple of $3$ is a losing position, while everything else is a winning position. We won't formally show this here, but I encourage you to try showing this, using a similar strategy to what we tried in the small cases above (hint: look into a proof technique called \textbf{induction})! Applying this to our original $20$-coin game, as $20$ is not a multiple of $3$, we start with a winning position. Therefore, as you go first, you win the game.
+
+This was a simplified version of the game \textbf{Nim}, a well-known and heavily studied combinatorial game. Working through all of the small cases here was really tiring, though. There has to be some way to formalize this into a technique, right?
+
+There is! We call them \textbf{nim-values} (also known as Sprague-Grundy numbers). We assign a nim-value to each possible position, and we can read who wins that position from these nim-values. Here are the steps to assigning nim-values:
+
+\begin{enumerate}
+    \item The ending state is assigned nim-value $0$.
+    \item To find the nim-value of other states, look at all positions that can then be reached from one move. The nim-value of the original state is the smallest nonnegative integer that is not a nim-value of those reachable positions.
+\end{enumerate}
+
+A position is winning if it has a nonzero nim-value, and it is losing if its nim-value is $0$.
+
+If this is confusing when written generally, don't worry! We'll work through an example with the Nim-like game from earlier.
+
+First, we'll assign nim-value $0$ to the ending state. In other words, the game with $0$ coins has nim-value $0$, so this position is losing. Logically, this makes sense: if you receive a position with $0$ coins, this means that the other player removed the last coin on their turn, and therefore won.
+
+Now, we'll turn to the game with $1$ coin. According to step $2$, we'll look at all possible positions that are reachable from $1$ coin. This is just the game 
+
+with $0$ coins, as our only option is to remove $1$ coin. Now, we already said the nim-value of the position with $0$ coins is $0$, and we know that $1$ is the smallest nonnegative integer that is not in the set $\{0\}$. Therefore, according to step $2$, the nim-value of the position with $1$ coin is $1$. As $1\neq 0$, the game with $1$ coin is winning, agreeing with what we saw earlier.
+
+If we start with $2$ coins, we can either move to the game with $0$ coins or the game with $1$ coin in one step. These positions have nim-values $0$ and $1$, respectively, so the game with $2$ coins has nim-value $2$ (as $2$ is the smallest nonnegative integer not in the set $\{0, 1\}$). Again, this means that $2$ coins is winning, agreeing with what we worked out earlier.
+
+If we start with $3$ coins, we can move to the game with $1$ coin, or the game with $2$ coins. Their nim-values are $1$ and $2$. Thus, the smallest nonnegative integer that is not a reachable nim-value is $0$, so the nim-value for $3$ coins is $0$. Hence, $3$ coins is losing.
+
+We can continue to work this out, and we'll reach the same conclusion that coin counts divisible by $3$ are losing, while everything else is winning.
+
+You may be thinking now: why on earth would we use this complicated system, when it doesn't even seem simpler than just working it out by hand like we did at the start? The answer to this is that nim-values come with many nice properties that would be difficult to observe without them: for example, nim-values allow us to determine winning and losing positions for games that are combinations of other games (say, if we played two games of Nim simultaneously) using an operation called the \textbf{bitwise XOR}. 
+
+Games like Nim and techniques like nim-values are the very surface of a type of math problem called \textbf{combinatorial games}, in which we study strategies and outcomes of various games. I encourage you to continue to read and experiment with nim-values and combinatorial games if you're interested!
+\end{document}

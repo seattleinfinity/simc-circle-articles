@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Math in Other Bases}
+\author{Michael Yang}
+
+\begin{document}
+
+\maketitle
+When learning number theory, many people get scared the first time they see numbers written in different bases. I know I was! All my life, I had had a very confined notion of what a number was; once other bases popped up, I was suddenly being told that the number $10$ could also be written as $1010$, $101$, $22$, and $20$. As a whole, thinking in other bases upended the framework I was used to operating in.
+
+As I grew comfortable with them, however, I realized that different bases weren’t all that scary -- in fact, they were comparatively simple! When working with these “new number systems,” the key thing to remember is that \textbf{only the base number changes, not the way we’re representing the number itself}. 
+
+This might seem like a confusing idea, so let’s start with an example. When working in ordinary base $10$, what does a number -- say $6137$ -- really \textit{represent}? You might answer with the idea of \textit{place value}: $6$ is in the thousands place, $1$ is in the hundreds place, $3$ is in the tens place, and $7$ is in the ones place.
+Thus, the number $6137$ is really a shorthand for representing the quantity $6\cdot 1000 + 1\cdot 100 + 3\cdot 10+7\cdot 1$. Alternatively, we could write this as $6\cdot 10^3+1\cdot 10^2+3\cdot 10^1+7\cdot 10^0$. 
+
+Now, here’s the key fact: \textit{this system of place value is universal, no matter the base}. Say we would like to convert the number $6137_8$ to base $10$. 
+Much like how the number $6137_{10}$ is a shorthand for writing $6\cdot{10}^3+1\cdot{10}^2+3\cdot 10^{1}+7\cdot 10^{0}$, the number $6137_8$ is a shorthand for writing $6\cdot 8^3+1\cdot 8^2+3\cdot 8^{1}+7\cdot 8^{0}$. If we work out the arithmetic, we can see that this is the number $3167$ (coincidentally a permutation of the digits of the original number!).
+
+This one idea -- that of place value being consistent across bases -- is really all we need to tackle the base-related problems that come up on the AMC or AIME! For example, let's work through this problem from the 2022 AIME I:
+
+Find the three-digit positive integer $\underline{a} \underline{b} \underline{c}$ whose representation in base nine is  $\underline{b}\underline{c}\underline{a}_9$ where $a$, $b$, $c$ are (not necessarily distinct) digits. 
+
+In this problem, the original integer $abc$ is written in base $10$. Thus, we know that it is shorthand for the quantity $100a+10b+c$. On the other hand, we know that this is equal to $bca_9$. Frmo our concept of place value, this represents the quantity $9^2b+9^{1}c+9^{0}a$, or $81b+9c+a$. Setting these equal to each other and canceling, we obtain the equation $99a=71b+8c$. Furthermore, since $a$, $b$, and $c$ are all valid digits in base nine, we know that they must all be less than or equal to eight.
+
+The hard part is over now: all that remains is to test the values! We see that there are no solutions when $a=1$, but we get the solution triple $(a,b,c)=(2,2,7)$ when testing $a=2$. Thus, the answer is $\boxed{227}$. 
+
+At first, bases might feel like a foreign concept. But, over time, they become quite familiar. And since the AMC and the AIME like to create base-related problems almost every year, they'll soon become old friends.
+\end{document}
