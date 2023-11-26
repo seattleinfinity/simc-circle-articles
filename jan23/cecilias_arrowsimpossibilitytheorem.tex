@@ -4,6 +4,8 @@
 \title{Arrow’s Impossibility Theorem}
 \author{Cecilia Sun}
 
+%% \blurb{Say you’re Gru of \textit{Despicable Me} fame, and you and your minions have just discovered a previously uninhabited island, on which you want to establish a new evil lab for you to conduct your evil experiments...}
+
 \begin{document}
 
 \maketitle
@@ -30,13 +32,12 @@ What happens when we don’t have IIA? Well, then there’s a potential for some
 	%todo for cecilia: 
 	%aroehus cropping is bad, i will fix later
 	\begin{center}
-	    \includegraphics[width = \linewidth]{images/minions1.png}
-	    \includegraphics[width = \linewidth]{images/minions2.png}
-	    \includegraphics[width = \linewidth]{images/minions3.png}
-	    \includegraphics[width = \linewidth]{images/minions4.png}
+	    \includegraphics[width=\linewidth]{images/minions1.png}
+	    \includegraphics[width=\linewidth]{images/minions2.png}
+	    \includegraphics[width=\linewidth]{images/minions3.png}
+	    \includegraphics[width=\linewidth]{images/minions4.png}
 	\end{center}
-	
-	
+ 
 	\item \textbf{Monotonicity}: If an individual voter changes their vote by ranking one of the candidates higher, then the candidate’s position in the final ranking should either be higher or unchanged; in other words, a voter should not be able to hurt a candidate’s final ranking by ranking them higher. Similarly, a voter should not be able to boost a candidate’s final ranking by ranking them lower. 
 	\item \textbf{Non-imposition}: It should be possible for any candidate to get elected! 
 \end{itemize}
@@ -45,8 +46,8 @@ Let’s look at each of the three minions’ proposed strategies and evaluate th
 
 \textbf{Stuart’s method}: Rank the candidates based on the number of first place votes they receive.
 \begin{itemize}
-	\item \textbf{Universality}: Stuart’s method {\textbf{satisfies}} universality: there is no randomness involved in his method.
-	\item \textbf{IIA}: Stuart’s method {\textbf{violates}} IIA. Consider the following election between Stuart (S), Kevin (K), and Bob (B), where each column represents an individual voter’s ballot and the number of voters who had that ballot:
+	\item \textbf{Universality}: Stuart’s method \textbf{satisfies} universality: there is no randomness involved in his method.
+	\item \textbf{IIA}: Stuart’s method \textbf{violates} IIA. Consider the following election between Stuart (S), Kevin (K), and Bob (B), where each column represents an individual voter’s ballot and the number of voters who had that ballot:
 	\[
 		\begin{array}{c|ccc}
 				& 49 & 48 & 3 \\
@@ -57,15 +58,15 @@ Let’s look at each of the three minions’ proposed strategies and evaluate th
 	\]
 
 	Stuart wins this election, but if Bob is disqualified from the election, then the three votes for Bob will go to Kevin and he will then beat Stuart! 
-	\item \textbf{Monotonicity}: Stuart’s method {\textbf{satisfies}} monotonicity: if a candidate has the most first-place votes, then giving them more first place votes will only put them higher in the ranking. 
-	\item \textbf{Non-imposition}: Stuart method {\textbf{satisfies}} non-imposition: if all the minions rank a candidate first, then that candidate will win, and this is true of all candidates. 
+	\item \textbf{Monotonicity}: Stuart’s method \textbf{satisfies} monotonicity: if a candidate has the most first-place votes, then giving them more first place votes will only put them higher in the ranking. 
+	\item \textbf{Non-imposition}: Stuart method \textbf{satisfies} non-imposition: if all the minions rank a candidate first, then that candidate will win, and this is true of all candidates. 
 \end{itemize}
 Okay, so Stuart’s method is alright, but it does violate IIA, and in a pretty egregious fashion: in the example case, there are two candidates who are head to head and a third candidate who has very little support, which mimics a lot of real elections! 
 
 \textbf{Kevin’s method}: For each ballot, give the first choice candidate $n$ points, the second choice gets $n-1$ points, etc. Then rank the candidates based on their point totals. 
 \begin{itemize}
 	\item \textbf{Universality}: Kevin’s method \textbf{satisfies} universality: there is no randomness involved in his method.
-	\item \textbf{IIA}: Kevin’s method {\textbf{violates}} IIA. Consider the following election between Stuart (S), Kevin (K), Bob (B), and Dave (D):
+	\item \textbf{IIA}: Kevin’s method \textbf{violates} IIA. Consider the following election between Stuart (S), Kevin (K), Bob (B), and Dave (D):
 	\[
 		\begin{array}{c|ccc}
 				& 14 & 8 & 4 \\
@@ -77,22 +78,22 @@ Okay, so Stuart’s method is alright, but it does violate IIA, and in a pretty 
 	\]
 
 	If we use Kevin’s method to determine the winner of this election, then Kevin wins with $78$ points. However, if we take Bob out of the election, then Stuart wins the election! 
-	\item \textbf{Monotonicity}: Kevin’s method {\textbf{satisfies}} monotonicity: if a candidate has the most points, then ranking them higher will only increase their point count, and they can only move higher in the final ranking.
-	\item \textbf{Non-imposition}: Kevin’s method {\textbf{satisfies}} non-imposition: if all the minions rank a candidate first, then that candidate will win, and this is true of all candidates. 
+	\item \textbf{Monotonicity}: Kevin’s method \textbf{satisfies} monotonicity: if a candidate has the most points, then ranking them higher will only increase their point count, and they can only move higher in the final ranking.
+	\item \textbf{Non-imposition}: Kevin’s method \textbf{satisfies} non-imposition: if all the minions rank a candidate first, then that candidate will win, and this is true of all candidates. 
 \end{itemize}
 Even though Kevin’s method \textit{seems} to be more fair than Stuart's method, it still has the same IIA issues! 
 
 \textbf{Bob’s method}: The ranking of candidates on Bob’s ballot is also the final ranking of candidates. 
 \begin{itemize}
-	\item \textbf{Universality}: Bob’s method {\textbf{satisfies}} universality: there is no randomness involved in his method.
-	\item \textbf{IIA}: Bob’s method {\textbf{satisfies}} IIA! If a candidate drops out of the election, then the candidates’ placements relative to each other is the same since they are the same on Bob’s ballot, which is the only one that matters.
-	\item \textbf{Monotonicity}: Bob’s method {\textbf{satisfies}} monotonicity. If a minion other than Bob changes their ballot, then all the candidates’ final placements remain the same, since Bob’s ballot is constant. If Bob changes his ballot to move a candidate higher, then the candidate will also be higher in the final ranking since the final ranking is determined by Bob’s ballot. 
-	\item \textbf{Non-imposition}: Bob’s method {\textbf{satisfies}} non-imposition: if Bob ranks a candidate first, then that candidate wins, and this is true for all candidates
+	\item \textbf{Universality}: Bob’s method \textbf{satisfies} universality: there is no randomness involved in his method.
+	\item \textbf{IIA}: Bob’s method \textbf{satisfies} IIA! If a candidate drops out of the election, then the candidates’ placements relative to each other is the same since they are the same on Bob’s ballot, which is the only one that matters.
+	\item \textbf{Monotonicity}: Bob’s method \textbf{satisfies} monotonicity. If a minion other than Bob changes their ballot, then all the candidates’ final placements remain the same, since Bob’s ballot is constant. If Bob changes his ballot to move a candidate higher, then the candidate will also be higher in the final ranking since the final ranking is determined by Bob’s ballot. 
+	\item \textbf{Non-imposition}: Bob’s method \textbf{satisfies} non-imposition: if Bob ranks a candidate first, then that candidate wins, and this is true for all candidates
 \end{itemize}
 
 According to our criteria, Bob’s method is actually the fairest out of all the proposed methods! 
 
 In 1950, economist Kenneth Arrow proved that, in fact, the only voting system that satisfies \textit{all} the fairness criteria is a dictatorship! 
 
-This result may seem shocking, but its practicality has been questioned even by Arrow himself. Though there might exist extreme cases in which voting systems do things we don’t want them to do, if they, like Stuart and Kevin’s suggestions, are reasonable enough, then we can expect them to work enough of the time. ``Most systems are not going to work badly all of the time” said Arrow. ``All I proved is that all can work badly at times.”
+This result may seem shocking, but its practicality has been questioned even by Arrow himself. Though there might exist extreme cases in which voting systems do things we don’t want them to do, if they, like Stuart and Kevin’s suggestions, are reasonable enough, then we can expect them to work enough of the time. ``Most systems are not going to work badly all of the time," said Arrow. ``All I proved is that all can work badly at times."
 \end{document}

@@ -22,13 +22,13 @@ texpreamble("\def\V#1{\bm{#1}}");
 
 \maketitle
 
-I always wished the AMC could test Abstract Algebra. I mean, who wouldn't? Thats why I went into Google and searched abstract algebra on the AMC, and amazingly I found something. Does this terrify you? That you might be the next unsuspecting victim of an abstract algebra problem on the AMC? Well, you are right to be scared. You should be TERREFIED. But don't worry, your salvation is in front of you. This article we will explain to you the magic and the terror of Burnsides Lemma.
+I always wished the AMC could test Abstract Algebra. I mean, who wouldn't? That's why I went into Google and searched abstract algebra on the AMC, and amazingly I found something. Does this terrify you? That you might be the next unsuspecting victim of an abstract algebra problem on the AMC? Well, you are right to be scared. You should be TERRIFIED. But don't worry, your salvation is in front of you. This article we will explain to you the magic and the terror of Burnside's Lemma.
 
-Before we see it written out, we must identify some notation and concepts. First, we introduce the notion of a group. This concept deserves its own article (and a lot more), but a simple definition is that it is a set of elements with a \textbf{binary operation}, such that there exists an \textbf{identity}, is \textbf{invertible}, and is \textbf{associative}. Writing this out, this means if $G$ is a group, then there is a function $\times: G\oplus G \rightarrow G$, ie. $\forall g,h\in G$, there exists $f\in G$ such that $g\times h = f$. The other properties mean (identity) there exists $e\in G$, such that $\forall g\in G$, $e\times g=g\times e = g$, (invertible) $\forall g\in G$, there exists $h\in G$ such that $gh=e$ and (associative) $\forall g,h,f\in G$, $(g\times h)\times f =g\times (h\times f)$.
+Before we see it written out, we must identify some notation and concepts. First, we introduce the notion of a group. This concept deserves its own article (and a lot more), but a simple definition is that it is a set of elements with a \textbf{binary operation}, such that there exists an \textbf{identity}, is \textbf{invertible}, and is \textbf{associative}. Writing this out, this means if $G$ is a group, then there is a function $\times: G\oplus G \rightarrow G$, i.e. $\forall g,h\in G$, there exists $f\in G$ such that $g\times h = f$. The other properties mean (identity) there exists $e\in G$, such that $\forall g\in G$, $e\times g=g\times e = g$, (invertible) $\forall g\in G$, there exists $h\in G$ such that $gh=e$ and (associative) $\forall g,h,f\in G$, $(g\times h)\times f =g\times (h\times f)$.
 
 A common example of a group is the set of integers under addition since taking the $0$ is your identity, negation is your inverse, and obviously, addition is associative.
 
-Alright, but we are not done yet, we also need to define a \textbf{Group Action.} A group action is when we consider a group $G$ as a function that acts on a set $X$. This means that $\forall g\in G$, $g: X\rightarrow X$, ie. $\forall x\in X$ and $g\in G$, $g(x)\in X$. Moreover, these group actions also have to follow their binary operation under composition. So we have that $g(h(x)) = (gh)(x)$. 
+Alright, but we are not done yet, we also need to define a \textbf{Group Action.} A group action is when we consider a group $G$ as a function that acts on a set $X$. This means that $\forall g\in G$, $g: X\rightarrow X$, i.e. $\forall x\in X$ and $g\in G$, $g(x)\in X$. Moreover, these group actions also have to follow their binary operation under composition. So we have that $g(h(x)) = (gh)(x)$. 
 
 One example of a $G$-action is if we take $G=\{R_0,R_{90},R_{180},R_{270}\}$  where $R_i$ is a clockwise rotation on the $xy$ plane by $i$ degrees, and the binary operation is composition, so $R_i \circ R_j = R_{i+j}.$ Then we can take $X$ to be the vertices of the cube. Then $R_{180}(5)=7$ and $R_{270}(1)=4$
 \begin{center}
@@ -36,7 +36,7 @@ One example of a $G$-action is if we take $G=\{R_0,R_{90},R_{180},R_{270}\}$  wh
 \end{center}
 
 
-We also have to identify what Orbits are. We'll define $O_x$ as the orbit of $x\in X$, which is basically where the element $x$ can go once you take $x$ as the function of an element of $G$ - hence the name. Formally, we have $O_x=\{y\in X | \exists g\in G, g(x)=y\}.$ Kind of the opposite, we also define $X^g$ as the elements in $X$ which are fixed by $g$, ie. $g(x) = x$.
+We also have to identify what Orbits are. We'll define $O_x$ as the orbit of $x\in X$, which is basically where the element $x$ can go once you take $x$ as the function of an element of $G$ - hence the name. Formally, we have $O_x=\{y\in X | \exists g\in G, g(x)=y\}.$ Kind of the opposite, we also define $X^g$ as the elements in $X$ which are fixed by $g$, i.e. $g(x) = x$.
 
 Ok, we are almost there. To understand the lemma, we first have to see a fact about orbits. This is that they collectively partition the set $X$. To see why this is true, consider the example from before when $X$ was the vertices of a cube, and $G=\{R_0,R_{90},R_{180},R_{270}\}$. Here we see that each point on the lower face can be sent to every other point on the lower face but no other points. Similarly, the top points can be sent to each other but nowhere else. Thus the two orbits partition the total set of $8$ vertices into the $4$ vertices on the top face and $4$ on the bottom face.
 
@@ -78,4 +78,5 @@ The cases where $g=V$ and $g=W$ are the same as $g=I$. Thus in total, we have
 
 We did it! We corrupted the AMC with Abstract Algebra! This shows that no matter how you try to hide from it, Abstract Algebra will always creep up on you. Who knows, maybe Burnsides Lemma will appear on the AMC next year, but now you'll be ready.
 \end{document}
+
 In this way (for those of you who know what a homomorphism is), a group action is really just homomorphism from $(G,\times)$ into the group of possible transformations on $X$.
