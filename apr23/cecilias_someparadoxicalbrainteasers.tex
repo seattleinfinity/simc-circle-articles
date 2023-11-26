@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Some Paradoxical Brainteasers}
+\author{Cecilia Sun}
+
+\begin{document}
+
+\maketitle
+\textit{Look for the solutions and explanations to these perplexing puzzles in the next issue!}
+
+Sometimes, mathematics does weird things that seem to upend our intuitive understanding of how the world should work, or just seem wrong. Here are some examples of these “paradoxes”; try to see how many you can figure out!
+
+\textbf{The Missing Dollar:} 
+Kevin, Stuart, and Bob are returning to Gru’s evil lair from one of their evil, nefarious expeditions. On their way back, they stop by a hotel and check into a hotel room. The manager tells them that the total bill is \$30, so Kevin, Stuart, and Bob each pitch \$10 from their piggy banks, hand them to the manager, and head to their room. Later, the manager realizes that, oh no! the bill was actually only \$25. To fix this, the manager gives the bellhop \$5 in the form of five \$1 dollar bills and tells him to deliver it to the minions. 
+
+Unfortunately, the bellhop is none other than Vector, villain extraordinaire, working as a bellhop to extort unsuspecting guests. Since the minions do not know the revised total bill, he decides to give each of the minions one dollar instead and keep the remaining \$2. 
+
+Each of the minions paid \$10 and were returned \$1, they only paid \$9 each; in total, they paid \$27. Vector kept \$2, bringing the total to \$29. Seeing as minions originally paid \$30, what happened to the remaining dollar?
+
+\textbf{Two Envelopes:}
+I have two envelopes: one contains \$100, and the other contains \$50. Other than that, the two envelopes are completely indistinguishable. You pick one envelope at random, but before you open it, I will let you switch envelopes and take the other one instead. Should you switch envelopes?
+
+At first glance, it looks like it shouldn’t matter, because the whole situation is symmetric. However, consider the following expected value argument:
+\begin{enumerate}
+	\item Let the amount of money in the envelope you chose be $A$. 
+\item If you have the \$100 envelope, then the other envelope contains $\frac A2$ and you lose $\frac A2$ by switching. If you have the \$50 envelope, then the other envelope contains $2A$, so you gain $A$ from switching.
+	\item Thus, the expected amount of money you get from switching is $\frac12A+\frac12(-\frac A2)=\frac14A>0$. 
+	\item Thus, it will always be beneficial to switch.
+\end{enumerate}
+ 
+What’s wrong with this argument?
+
+\textbf{The Monty Hall Problem:}
+You're Dave, one of Gru's minions, and while trying to complete your super secret evil Gru mission, you were kidnapped by evil villain Vector! 
+
+While Vector may be a villain, he still has morals, and believes that everyone has the right to prove themself, and will let you leave if you win his little game. 
+
+Vector positions you in front of three identical doors. One of them is the exit; the others will lead you to certain death. You pick one door, and out of the two doors you did not choose, Vector (who knows what is behind each door) chooses one to open, revealing a pit of lava. He then gives you the option then to switch doors -- is it to your advantage to switch doors? Does this option matter at all?
+\end{document}

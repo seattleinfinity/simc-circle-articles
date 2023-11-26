@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Mathematics in Computer Science: Binary Exponentiation}
+\author{William Gvozdjak}
+
+\begin{document}
+
+\maketitle
+At times, it can seem like mathematics is an extremely obscure subject of math that is unusable to accomplish anything in life. However, mathematics is actually among the most applicable subjects in the world. In this article, we'll explore a few of the many connections between mathematics and computer science, which contains some of the most important connections involving math.
+
+Consider the following problem: we have two numbers $a$ and $b$, and we want to be able to quickly calculate $a^b$. In what ways can we do this?
+
+The obvious and na\"{i}ve approach is to simply continue multiplying $a$ by itself $b$ times. For example, if we wanted to calculate $5^4$, we would start with $1$ and multiply it by $5$ four times, giving us $5\cdot 5\cdot 5\cdot 5=4$. We say that the time complexity of this algorithm is linear, and the algorithm runs in $\mathcal{O}(n)$ time: the amount of time that this takes to run is linearly proportional to the exponent. For example, if we wanted to calculate $5^1$, it would only need to make one computation, while if we wanted to calculate $5^{100}$, we would need to make $100$ computations.
+
+If $b$ is small, this works great! But what if we wanted to calculate something crazy, like $5^{174382749832}$? Now, this algorithm becomes a little bit of a problem: we'd need to make $174382749832$ whole separate multiplications, which will start taking significantly longer than before. Is there some way that we can make this faster?
+
+There is! The answer is something called \textbf{binary exponentiation}: we can use math, and specifically base $2$ numbers, to significantly speed up our calculations. We'll compute the value of $5^{7}$ using this algorithm as an example.
+
+We begin this algorithm by converting our exponent into binary (base $2$): $5^{111_2}$. Now, we use a fundamental exponent rule -- $n^{a+b}=n^a\cdot n^b$ -- to split this into
+\[5^{1_2}\cdot 5^{10_2}\cdot 5^{100_2}.\]
+Now, notice that when we convert the exponents back into base $10$, something remarkable happens:
+\begin{align*}
+    5^{1}\cdot 5^{2}\cdot 5^{4}.
+\end{align*}
+Each ``term'' is the square of the previous term! In other words, we can calculate the value of $5^7$ as follows:
+\begin{enumerate}
+    \item Define two variables: \texttt{result} (which is what will become the value of $5^7$), and \texttt{current}, which is a helper variable that we'll be using to compute the result. Set result to $1$.
+    
+    \item Compute the value of $5^1$, and let \texttt{current} be that value. Multiply \texttt{result} by \texttt{current}.
+    
+    \item Square the value of \texttt{current}; hence, the value of \texttt{current} is $5^2$. Multiply \texttt{result} by \texttt{current}, and hence \texttt{result} is equal to $5^{1+2}=5^3$.
+    
+    \item Square the value of \texttt{current}; hence, the value of \texttt{current} is $5^4$. Multiply \texttt{result} by \texttt{current}, and hence \texttt{result} is equal to $5^{1+2+4}=5^7$.
+\end{enumerate}
+
+Therefore, using this algorithm, we also end up with the value of $5^7$. Notice that we only needed to perform essentially three steps to reach our result, rather than seven with the previous algorithm! 
+
+Now, consider a general $a^b$. How would we calculate this quickly? We'd do the same thing: convert $b$ to binary. Then, let \texttt{current} be $a$, and repeatedly square \texttt{current}. After each square, if the bit in the binary representation of $b$ is $1$, then multiply \texttt{result} by \texttt{current}, otherwise, just leave it and continue.
+
+To emphasize how this works, let's consider one more example. We'll calculate the value of $2^{11}$.
+
+\begin{enumerate}
+    \item Convert the exponent $10$ to binary: $2^{1011_2}$.
+
+    \item Set \texttt{result} to $1$, and also define another variable \texttt{current}.
+
+    \item Set \texttt{current} to $2=2^{1_2}$. Multiply \texttt{result} by \texttt{current} to give $2^{1_2}$, as the fourth digit of $1011_2$ is $1$.
+
+    \item Square \texttt{current} to $2^2=2^{10_2}$. Multiply \texttt{result} by \texttt{current} to give $2^{11_2}$, as the third digit of $1011_2$ is $1$.
+
+    \item Square \texttt{current} to $2^4=2^{100_2}$. Skip multiplying \texttt{result} by \texttt{current}, as the second digit of $1011_2$ is $0$.
+
+    \item Square \texttt{current} to $2^8=2^{1000_2}$. Multiply \texttt{result} by \texttt{current} to give $2^{1011_2}$, as the first digit of $1011_2$ is $1$.
+\end{enumerate}
+
+This gives us what we wanted!
+
+So after all this, what is the time complexity of this new algorithm? Is it really faster than the old one for large powers?
+
+Consider how many ``steps'' we need to take to reach our answer. We perform one new step for each digit of the exponent $b$ in binary. In other words, the total number of steps we must take to compute $a^b$ is the number of digits of $b$ in binary. This is just $\log_2{b}$. Therefore, this new algorithm runs in just $\mathcal{O}(\log{n})$ time (in computer science, $\log$ denotes the base $2$ logarithm), significantly faster than before!
+
+Binary exponentiation shows the power of using mathematics to make significantly better and faster algorithms in computer science. Simply by converting the exponent to base $2$, we could dramatically improve the speed of exponentiation: instead of computing $2^{1024}$ in $1024$ steps, we can instead do it in just $\log_2{1024}=10$ steps! As a result, we can see that mathematics is actually an incredibly useful and applicable field.
+
+If you're interested in algorithmic programming like this that involves an element of mathematics, I recommend you check out the \href{http://usaco.org/}{USA Computing Olympiad}, the largest pre-college programming contest involving creative algorithmic problems. As evident by the strong connections between math and computer science that we saw in this article, practicing for math makes you better at contests like the USACO, and vice versa!
+\end{document}

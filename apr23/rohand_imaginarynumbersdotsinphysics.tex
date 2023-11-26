@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Imaginary Numbers\dots in Physics}
+\author{Rohan Dhillon}
+
+\begin{document}
+
+\maketitle
+If you've ever had the\dots let's say \textit{good fortune} to encounter Schr\"odinger's Equation, you might have noticed a peculiarity in it: the constant $i$. What in the world are imaginary numbers doing in physics? And what could they possibly represent?
+
+But first, a brief description of the equation. For those of you who are more mathematically inclined, I invite you to try and make sense of the equation in all its expanded glory:
+\begin{multline*}
+    i\hbar \frac{\partial}{\partial t} \psi (x,t)= \\
+    \left[ \frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x,t)\right] \psi (x,t)
+\end{multline*}
+    
+Whew! That was a lot to write in \LaTeX, and it all \textit{feels} about right -- some time derivatives, position derivatives, potential energies -- except for that $i$ dangling off the left edge. But before we figure out what it's doing there, let's figure out what this equation really means. 
+
+Particles' positions are indeterminate, meaning that we have no idea where they are until we try to detect the particle.
+So, we need a different representation of these particles -- they are not points in space whose position is known, but rather \textit{probability densities}. 
+The particle has a probability of being at any given point, and that's what our equation represents. The function $\psi(x,t)$ is a function of $x,$ position, and $t,$ time, which is related to a probability of a particle being at a certain point at a certain time. Meanwhile, $\partial$ is a partial derivative, denoting the rate of change with respect to a specific variable, and $\hbar$ is the reduced Planck constant (a certain value that's $\frac{1}{2\pi}$ smaller than the smallest distance one can travel).
+
+We have that the left side is $i$ times some constant times the time derivative of the $\psi$ function, which equals $\frac{\hbar^2}{2m}$ times the \textit{second} partial derivative with respect to position of $\psi$ plus the potential energy of the particle times the function $\phi.$ Whew, that's a lot so let's figure out what the equation really means.
+
+For our purposes, what matters is that $i.$ It seems to suggest that $\psi$ outputs imaginary numbers, as otherwise the left side of the equation would be an imaginary number (note that imaginary here means \textit{purely} imaginary), while the right hand side would be a real number. So the probability of a point being at a point is\dots an imaginary number? That's also clearly wrong. 
+
+And this is where I lied to you -- earlier I said that the function was ``related to" the probability of a particle being at a given point at a given time. However, thanks to physics just being annoying, they're not equal. Instead, the probability of the particle being at a given point is
+\[P=|\psi(x,t)|^2\]
+-- which is quite bizarre. Why is the square of an absolute value showing up? Well, the real (and extremely unsatisfying answer) is that no one knows. The result is an ``axiom" of quantum mechanics, just like how the fact that given a line and a point not on that line, there is exactly one line through the point that's parallel to the given line is an axiom of Euclidean geometry. 
+
+Although we can't know why Schr\"odinger's Equation relates to probability densities, we can still draw some basic conclusions (as well as speculate about possible links between probabilities and $\psi$). A seemingly-obvious conclusion is that 
+\[\iiint_V |\psi(x,t)|^2 = 1\]
+for a given time $t.$ All this says is that the particle \textit{exists} at every point in t. Indeed, if this value was less than 1, it would suggest that particles spontaneously appear or disappear\dots oh wait! Maybe this is indeed the case? Our mathematics suggest that fundamental particles like protons decay after \textit{extremely} long periods of time (on the order of $10^{20}$ seconds), which is a property derivable from this seemingly-unrelated equation! But all of this masks a more fundamental question -- why the square of the amplitude in the first place?
+
+We don't really know, but we think it could be related to the fact that a wave's intensity is proportional to its amplitude squared. Or maybe it could have something to do with the ``length of vectors" (the length of a complex number is its magnitude, after all). Consider this a puzzle for you to figure out! The universe is full of neat mathematical intricacies that underpin all around us -- it's up to us to solve them.
+\end{document}
