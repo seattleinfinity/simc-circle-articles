@@ -32,7 +32,7 @@ Alright, but we are not done yet, we also need to define a \textbf{Group Action.
 
 One example of a $G$-action is if we take $G=\{R_0,R_{90},R_{180},R_{270}\}$  where $R_i$ is a clockwise rotation on the $xy$ plane by $i$ degrees, and the binary operation is composition, so $R_i \circ R_j = R_{i+j}.$ Then we can take $X$ to be the vertices of the cube. Then $R_{180}(5)=7$ and $R_{270}(1)=4$
 \begin{center}
-    \includegraphics[width=8cm, scale=1]{nov23/images/Labeled_cube_graph.png}
+    \includegraphics[width=8cm, scale=1]{images/Labeled_cube_graph.png}
 \end{center}
 
 
@@ -48,10 +48,10 @@ I know, it looks kinda scary, but let's see it in action, with, as promised, an 
 Problem 13 AMC 12B 2017:
 In the figure below, $3$ of the $6$ disks are to be painted blue, $2$ are to be painted red, and $1$ is to be painted green. Two paintings that can be obtained from one another by a rotation or a reflection of the entire figure are considered the same. How many different paintings are possible?
 \begin{center}
-    \includegraphics[width=10cm, scale=1.5]{nov23/images/amc12b1017p13.png}
+    \includegraphics[width=10cm, scale=1.5]{images/amc12b1017p13.png}
 \end{center}
 
-$\textbf{(A) } 6 \qquad \textbf{(B) } 8 \qquad \textbf{(C) } 9 \qquad \textbf{(D) } 12 \qquad \textbf{(E) } 15$
+$\mathbf{(A) } 6 \qquad \mathbf{(B) } 8 \qquad \mathbf{(C) } 9 \qquad \mathbf{(D) } 12 \qquad \mathbf{(E) } 15$
 
 Let's rewrite the problem in terms of Burnsides Lemma. In this case, the group action is rotations and reflections, so specifically our group is $D_3=\{R_0,R_{120},R_{240}, I,V,W\}$ where $R_i$ is a rotation by $i$ degrees and $I, V, W$ is reflecting vertically, North West to South East, and North East to South West respectively. It can be verified that $G$ is a group if we take the binary operation to be composition.
 
@@ -59,7 +59,7 @@ Now we take our set $X$ to be the total number of diagrams. Then the question is
 $$\frac{1}{|D_3|}\sum_{g\in D_3}|X^g|,$$
 so all we need to do is find the number of diagrams that are stable under each element of $D_3$. Lets number the circles as following so we can easily reference them:
 \begin{center}
-    \includegraphics[width=10cm, scale=1.5]{nov23/images/modifiedamcimage.png}
+    \includegraphics[width=10cm, scale=1.5]{images/modifiedamcimage.png}
 \end{center}
 If $g=R_0$, then every disk is disk is unaffected, so all diagrams are fixed. Thus $|X^{R_0}|=\binom{6}{3}\binom{3}{2}=60$. 
 

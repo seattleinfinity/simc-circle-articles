@@ -18,10 +18,13 @@ Initially, it may seem counterintuitive to use probability in a purely combinato
 
 Suppose we have a bunch of points, and then line segments between any pair of those points. For example, if we have four points, it'll look like this:
 
+% \begin{center}
+%     \begin{tikzpicture}
+%         \graph { subgraph K_n [n=4,clockwise,radius=1.5cm] };
+%     \end{tikzpicture} 
+% \end{center}
 \begin{center}
-    \begin{tikzpicture}
-        \graph { subgraph K_n [n=4,clockwise,radius=1.5cm] };
-    \end{tikzpicture} 
+    \includegraphics[width=4in]{images/K4.png}
 \end{center}
 
 This is called a \emph{complete graph} on $4$ vertices: each ``point'' is called a \emph{vertex}, and each line segment is called an \emph{edge}. We say that a \emph{complete subgraph} of this graph is any subset of its vertices together with all the edges between those vertices.
