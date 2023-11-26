@@ -1,78 +1,7 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage{pgfplots}
-\usepackage{graphicx, wrapfig}
-\usepackage{gensymb}
-\usepackage{setspace}
-\usepackage{nopageno}
-\setlength{\parindent}{0cm}
-\usepackage[inline]{asymptote}
-\usepackage{blindtext}
-\usepackage{subfiles}
-\usepackage[english]{babel}
-\usepackage{amsthm, amssymb, amsmath, fancyhdr, mathtools}
-\usepackage{asymptote}
-\usepackage{hyperref}
-\setcounter{section}{-1}
-\usepackage[letterpaper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm,]{geometry}
-\usepackage{xcolor}
-\usepackage{listings}
-\usepackage{etoolbox}
-\usepackage{enumitem}
-\usetikzlibrary{trees,arrows}
-\usepackage{framed}
-\renewenvironment{leftbar}[1][\hsize]
-{%
-    \def\FrameCommand
-    {%
-        %{\color{red}\vrule width 3pt}%
-        %\fboxsep=\FrameSep\colorbox{yellow}%
-        {\vrule width 3pt}%
-        \hspace{10pt}%must no space
-    }%
-    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
-}
-{\endMakeFramed}
-\newenvironment{quotationb}%
-{\begin{leftbar}\begin{quotation}}%
-{\end{quotation}\end{leftbar}}
+\usepackage{graphicx}
+\usepackage{amsmath}
 
-\pagestyle{fancy}
-\newtheoremstyle{problem}% <name>
-{3pt}% <Space above>
-{3pt}% <Space below>
-{}% <Body font>
-{}% <Indent amount>
-{\bfseries}% <Theorem head font>
-{.}% <Punctuation after theorem head>
-{.2em}% <Space after theorem headi>
-{}% <Theorem head spec (can be left empty, meaning `normal')>
-\newtheorem{theorem}{Theorem}
-\AfterEndEnvironment{theorem}{\noindent}
-\newtheorem*{corollary}{Corollary}
-\newtheorem*{lemma}{Lemma}
-\newtheorem{proposition}{Proposition}
-\theoremstyle{remark}
-\newtheorem*{solution}{Solution}
-\AfterEndEnvironment{solution}{\noindent}
-\newtheorem*{example}{Example}
-\theoremstyle{problem}
-\newtheorem{problem}{Problem}
-\AfterEndEnvironment{problem}{\noindent}
-\numberwithin{problem}{subsection}
-\newtheorem{Problem}{Problem}
-\AfterEndEnvironment{Problem}{\noindent}
-\numberwithin{Problem}{section}
-\theoremstyle{definition}
-\newtheorem*{definition}{Definition}
-\theoremstyle{definition}
-\newtheorem*{remark}{Remark}
-\newcommand{\andd}{\wedge}
-\newcommand{\orr}{\vee}
-\usepackage{kpfonts}
-\DeclareMathOperator{\var}{var}
-\setlength\parindent{24pt}
-\newcommand{\probP}{\text{I\kern-0.15em P}}
 \title{Spirograph}
 \author{Nishka Kacheria}
 \date{October 2023}
@@ -216,12 +145,14 @@ Note that from the perspective of the inner gear in our two diagram setup, the s
 
 Then, we can add this back to our initial set of equations, but negative. This also makes sense because the third gear would be rotating in the same direction as the first, outer gear, so it should be added back to the overall equation. 
 
-Additionally, note that this is $\phi.$ Substituting in $\theta$ for $\phi$ using the equations we previously had, we get
-\begin{align*}
-x = k\cos\left(t\right)-k\sin\left(t\right)\ -k_{2}\cos\left(ct\right)+k_{2}\sin\left(ct\right) + r_{3}\cos\left(c \cdotc_{2}t\right)-r_{3}\sin\left(c \cdot c_{2}t\right) \\
-y = k\sin\left(t\right)+k\cos\left(t\right) -k_{2}\sin\left(ct\right)-k_{2}\cos\left(ct\right)+r_{3}\sin\left(c \cdot c_{2}t\right)+r_{3}\cos\left(c\cdot c_{2}t\right) \\
-\end{align*}
-Where $k = \frac{r_1 - r_2}{r_1},$ and $k_2 = \frac{r_2 - r_3}{r_2},$ $c = \frac{r_1 - r_2}{r_1},$ and $c_2 = \frac{r_2 - r_3}{r_2}$
+Additionally, note that this is $\phi.$ Substituting in $\theta$ for $\phi$ using te equations we previously had, we get
+\[
+\begin{aligned}
+    x &= k\cos\left(t\right)-k\sin\left(t\right)\ -k_{2}\cos\left(ct\right)+k_{2}\sin\left(ct\right) + r_{3}\cos\left(c \cdot c_{2}t\right)-r_{3}\sin\left(c \cdot c_{2}t\right) \\
+    y &= k\sin\left(t\right)+k\cos\left(t\right) -k_{2}\sin\left(ct\right)-k_{2}\cos\left(ct\right)+r_{3}\sin\left(c \cdot c_{2}t\right)+r_{3}\cos\left(c\cdot c_{2}t\right)
+\end{aligned}
+\]
+Where $k = \frac{r_1 - r_2}{r_1},$ and $k_2 = \frac{r_2 - r_3}{r_2},$ $c = \frac{r_1 - r_2}{r_1},$ and $c_2 = \frac{r_2 - r_3}{r_2}$.
 
 This gives
 
@@ -242,7 +173,6 @@ Its equations are
 x = k\cos\left(t\right)-k\sin\left(t\right)\ -\ k_{2}\cos\left(ct\right)+k_{2}\sin\left(ct\right)\ +\ k_{3}\cos\left(cc_{2}t\right)-k_{3}\sin\left(cc_{2}t\right)\ -\ r_{4}\cos\left(cc_{2}c_{3}t\right)+r_{4}\sin\left(cc_{2}c_{3}t\right) \\
 y = k\sin\left(t\right)+k\cos\left(t\right)\ -\ k_{2}\sin\left(ct\right)-k_{2}\cos\left(ct\right)+k_{3}\sin\left(cc_{2}t\right)+k_{3}\cos\left(cc_{2}t\right)-r_{4}\sin\left(cc_{2}c_{3}t\right)-r_{4}\cos\left(cc_{2}c_{3}t\right) \\
 \end{align*}
-
 We can keep going, making 5, 6, and more geared spirographs. \\ \\
 
 
