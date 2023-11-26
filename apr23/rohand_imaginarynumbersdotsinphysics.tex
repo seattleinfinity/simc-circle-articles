@@ -1,19 +1,21 @@
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage{amsmath}
 
 \title{Imaginary Numbers\dots in Physics}
 \author{Rohan Dhillon}
 
+%% \blurb{If you've ever had the... let's say \textit{good fortune} to encounter Schrödinger's Equation, you might have noticed a peculiarity in it: the constant i. What in the world are imaginary numbers doing in physics? And what could they possibly represent?}
+
 \begin{document}
 
 \maketitle
-If you've ever had the\dots let's say \textit{good fortune} to encounter Schr\"odinger's Equation, you might have noticed a peculiarity in it: the constant $i$. What in the world are imaginary numbers doing in physics? And what could they possibly represent?
+If you've ever had the... let's say \textit{good fortune} to encounter Schrödinger's Equation, you might have noticed a peculiarity in it: the constant $i$. What in the world are imaginary numbers doing in physics? And what could they possibly represent?
 
 But first, a brief description of the equation. For those of you who are more mathematically inclined, I invite you to try and make sense of the equation in all its expanded glory:
-\begin{multline*}
-    i\hbar \frac{\partial}{\partial t} \psi (x,t)= \\
-    \left[ \frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x,t)\right] \psi (x,t)
-\end{multline*}
+\begin{align*}
+    i\hbar \frac{\partial}{\partial t} \psi (x,t)=\left[ \frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x,t)\right] \psi (x,t).
+\end{align*}
     
 Whew! That was a lot to write in \LaTeX, and it all \textit{feels} about right -- some time derivatives, position derivatives, potential energies -- except for that $i$ dangling off the left edge. But before we figure out what it's doing there, let's figure out what this equation really means. 
 
