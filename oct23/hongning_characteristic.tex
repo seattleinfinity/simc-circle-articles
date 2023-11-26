@@ -6,11 +6,12 @@
 \author{Hongning Wang}
 \date{October 2023}
 
+%% \blurb{While solving problem 20 on this year's AMC 12A, I, along with many others, quickly derived a recurrence relation...}
+
 \begin{document}
 
 \maketitle
 
-\section{Article}
 While solving problem $20$ on this year's AMC $12$A, I, along with many others quickly derived the recurrence relation $c_n = 2c_{n-1}+n-2$, $c_1 = 1$ where $c_n$ represents the sum of the elements of the $n$th row. However, the question did not just ask for a recursion; it requested the value of $c_{2023} \pmod{10}.$ While my friends guessed the solution, or engineers inducted, I proceeded with a standard method: Characteristic Polynomials.
 
 To start off, we require some big words that can be skimmed in a first reading. The main idea of this approach is that recurrences of the form $c_n = A\cdot c_{n-1} + B \cdot c_{n-2} + C \cdot c_{n-3} \dots + f(n)$ for constants $A, B, C, \dots$ are satisfied by exponential solutions when $f(n) = 0$. Also, all these recurrence relations obey the superposition principle. In other words, if linearly independent $b_1, b_2, b_3 \dots b_k$ are particular solutions to $c_n$, then the general form of $c_n$ is a linear combination of $b_1, b_2, b_3 \dots b_k$.
@@ -25,11 +26,15 @@ Now, what happens if $f(n)$ is not zero, but a polynomial? Certainly, it is some
 
 As an example, let's return to the initial recurrence $c_n = 2c_{n-1} + n-2.$ If we were to use algebraic manipulation, we must eliminate $n-2$ from the recurrence. For instance, we may apply 
 \begin{align}
-    c_{n-1} &= 2c_{n-2} + n-3 \\
-    c_{n} &= 2c_{n-1} + n-2 \\
-    c_{n+1} &= 2c_{n} + n-1 
+    c_{n-1} &= 2c_{n-2} + n-3 \tag{1} \\
+    c_{n} &= 2c_{n-1} + n-2 \tag{2} \\
+    c_{n+1} &= 2c_{n} + n-1 \tag{3} 
 \end{align}
-Now, $(3) + (1) - 2 \cdot (2)$ yields $c_{n+1}-4c_{n}+5c_{n-1}-2c_{n-2} = 0$ which is homogeneous. Setting $c_n = \lambda^n$ yields $\lambda^3 - 4\lambda^2 + 5\lambda -2 = 0 \Longleftrightarrow (\lambda - 2)(\lambda-1)^2 = 0$, so $\lambda = 1,1,2$. With the double root (triple, quadruple, etc. roots work similarly), we invoke the general theory of recurrence relations to say that the particular solutions are $n(1)^n$ and $1^n$; the other particular solution is $2^n.$ As such, $c_n = A2^n + Bn(1)^n + C1^n$. Solving for the specific constants is left to the reader. 
+Now, $(3) + (1) - 2 \cdot (2)$ yields
+\[ c_{n+1}-4c_{n}+5c_{n-1}-2c_{n-2} = 0, \]
+which is homogeneous. Setting $c_n = \lambda^n$ yields
+\[\lambda^3 - 4\lambda^2 + 5\lambda -2 = 0 \Longleftrightarrow (\lambda - 2)(\lambda-1)^2 = 0,\]
+so $\lambda = 1,1,2$. With the double root (triple, quadruple, etc. roots work similarly), we invoke the general theory of recurrence relations to say that the particular solutions are $n(1)^n$ and $1^n$; the other particular solution is $2^n.$ As such, $c_n = A2^n + Bn(1)^n + C1^n$. Solving for the specific constants is left to the reader. 
 
 Finally, we conclude by presenting an application of the sneakier method. We note that the degree of any polynomial solution must be less than or equal to $1$; otherwise, the degree of the RHS exceeds that of the LHS. Therefore, if the polynomial solution is $c_n = Dn + E$, we may obtain $D = -1, E = 0.$ 
 
