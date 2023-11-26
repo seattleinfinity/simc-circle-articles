@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{A Lanyard Problem: Generalizations}
+\author{Cecilia Sun}
+
+\begin{document}
+
+\maketitle
+In the last newsletter, we investigated the $1$ out of $n$ version of the lanyard puzzle: given a lanyard and $n$ pegs, can we wrap the lanyard around the pegs in a way such that removing any one peg will cause the lanyard to fall? We showed that yes, this is possible, and discovered a construction that contains approximately $2n^2$ moves. 
+
+This might prompt us to change the question: what if we color our pegs, with two red pegs and one blue peg, and want to hang our lanyard in a way such that removing the blue peg causes the lanyard to fall, removing both red pegs causes the lanyard to fall, but removing just one red peg will leave the lanyard hanging? The answer turns out to be \textbf{yes}\footnote{by lecture theory}, and the solution is quite similar to what we discovered in the $1$ out of $n$ version! 
+
+The idea is to define a \textbf{superpeg} $S$ which represents both the red pegs. Wrapping the lanyard clockwise around the superpeg corresponds with wrapping clockwise around the first peg, then clockwise around the second peg. It might be tempting to define a counterclockwise wrap around the superpeg to likewise correspond with wrapping counterclockwise around the first peg, then counterclockwise around the second peg, but this won’t work for our purposes! We want everything to cancel when we wrap the lanyard clockwise then counterclockwise around the superpeg, but this means we actually want to start from the back. So, we actually define a counterclockwise wrap around the superpeg to correspond with wrapping counterclockwise around the \textit{second} peg, then counterclockwise around the first peg\footnote{this looks suspiciously like how we construct inverses; in fact, it literally is just an inverse}. 
+
+Then, if we let our two red pegs be pegs $1$ and $2$, then we can define our \textbf{superpeg moves} to be $s=x_1x_2$ and $s^{-1}=x_2^{-1}x_1^{-1}$. 
+
+Then, we can just use our two peg solution on the superpeg $S$ and peg $3$, which gives us the configuration $sx_3s^{-1}x_3^{-1}$; we can then substitute our superpeg moves in, yielding us 
+\[x_1x_2x_3x_2^{-1}x_1^{-1}x_3^{-1}.\]
+
+We can still use this approach even when we have multiple superpegs: if we have $n$ arbitrary subsets of pegs, and we want the picture to fall if and only if all the pegs in at least one subset have been removed, then we can simply create the $n$ superpegs, as above, and then apply the $1$ out of $n$ peg solution on the superpegs. 
+
+Right now, our construction is very inefficient. For instance, if we have two subsets $A$ and $B$ such that $A\subset B$, then we are guaranteed that removing all the pegs in $B$ will cause the lanyard to fall, since we already know that removing all the pegs in $A$ causes the lanyard to fall! However, if we construct our function as usual, we are still including the redundant superpeg $B$, which we could certainly just remove. 
+
+It turns out that the answer to this optimization problem for any general case involves objects called \textbf{monotone boolean functions}, which are out of the scope of this article, but the idea is to scrap the subsets entirely and instead define a fall function $f_p(r_1,r_2,\dots,r_n)$ to output either $1$ (the lanyard falls) or $0$ (the lanyard remains hanging), where each $r_i$ is $1$ if the $i$th peg has been removed and $0$ if the $i$th peg is still there. We can then use logical circuits to solve the problem in complete generality! 
+
+Through this framework, we deduce that the optimal solution for most such questions grow exponentially. However, the solutions to the special $k$ out of $n$ pegs cases (where the lanyard falls after any $k$ pegs are removed) have polynomial-length solutions!
+
+If you’re interested in reading more, check out the paper \href{https://erikdemaine.org/papers/PictureHanging_FUN2012/paper.pdf}{here} to learn more!
+\end{document}

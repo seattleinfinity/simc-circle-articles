@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Polya's Neverending Walk}
+\author{Eric Yee}
+\date{November 2023}
+
+\begin{document}
+
+\maketitle
+
+It was a long time ago when I was safe at home. Back then, in the warm embrace of the origin, I was sheltered and safe, yet I longed for more. \emph{Sigh}---if only I had known better... 
+
+Not that anyone will be able to read it. This a documentation of my journey.
+
+It all started a long time ago, too long to remember. I had grown up in the loving embrace of my hometown: the Origin. It was all I knew, but unlike the others in my town, I longed for more. 
+
+I always thought \emph{there must be something outside this 0-dimensional cage}. Unfortunately, I was right.
+
+One day, I stumbled onto a mysterious trail on the outskirts of the Origin. A sign stood guard:
+
+\emph{
+The Number Line: }
+
+\emph{
+Forwards backward, with equal chance,}
+
+\emph{
+Adventure waits at each advance.
+}
+
+Without thinking, I leaped onto the trail. Finally, a chance to journey beyond the 0 dimensions! 
+
+Bounding up and down, I raced across the Number Line, and before I knew it, I came upon a clearing. I looked around and found myself in the center of another point, not unlike the origin. \emph{There were more points in this world?} In the distance I could make out the entrance I had run through, and in the opposite direction, an exit... or was that the entrance and this the exit... or... had I forgotten? 
+
+
+No worries, I love mystery. I randomly chose an exit and kept leaping down the number line.  Once again, in a few seconds, I was at the center of another empty point. And yet again, there was an entrance and exit, but which was which? Again, I was disoriented. But, never discouraged, I chose randomly and journeyed on and on...
+
+By now many of you might have ascertained the nature of my walk. I was on the 1-dimensional Number Line (you might know it as $\mathbb{Z}$), and, as I traversed from one integer to a consecutive one, I was forced to choose randomly to go forward or backward. Being one of the brightest back at the Origin, I figured this out as well, and my mathematical intuition also gave me a peculiar feeling that I must be destined to return to the Origin. 
+
+Soon, I proved this claim. Let $p$ be the probability I return to the origin if I start at the origin. In other words, $p$ is the probability you reach the origin if you start at $x=1$. Then, we can find:
+\begin{align*}
+    p &= P\left(\text{return to origin from $x=1$}\right)\\ 
+    &= \frac{1}{2} + \frac{1}{2}P\left(\text{return to origin from $x=2$}\right)\\
+    &=\frac{1}{2} + \frac{1}{2}P\left(\text{go to $x=1$ from $x=2$}\right) \cdot P\left(\text{return to origin from $x=1$}\right)\\
+    &=\frac{1}{2} + \frac{1}{2}p\cdot p.
+\end{align*}
+
+In other words: after I have taken my first step to $x=1$, I can either go backward and return to the origin with $\frac{1}{2}$ probability, or take a step forward to $x=2$ with $\frac{1}{2}$ probability. Then, to return to the origin from $x=2$, you have to arrive at $x=1$ at some point. Starting at $x=2$ and returning to $x=1$ is akin to starting and returning to the origin. From $x=1$, returning to the origin has a probability of $p$. This gives us a quadratic, which we can solve and find $p$!
+\begin{align*}
+    (p-1)^2&=0 \\
+    p&=1.
+\end{align*}
+
+Indeed, my calculations did not fail me. After passing $8$ points, I found myself back at the Origin. But now that I knew there was a world outside the Origin, my desire to see more of the world was insatiable. I would make journey after journey on the number line, and every time I would find myself back at the Origin without fault.
+
+Eventually, I longed for more, and that was when I stumbled on \emph{the Plane}. 
+
+I had just returned from a walk on the number line, and, while strolling around the Origin, I found myself in a circular clearing. To my front I saw another Number Line-like trail stretching out in front of me. Turning 90 degrees I saw an identical one, and another one in 180 degrees, and another in 270 degrees. Underneath my feet was a carving in the stone that read: 
+
+\emph{The Plane}
+
+\emph{
+Each direction, not two but four}
+
+\emph{Four ways to wander, no need to ponder
+} 
+
+Immediately, I understood where I was. While such an object could never exist in my $0$-dimensional home, I had long conjectured the existence of a $2$-dimensions that was like a combination of two \emph{Number Line}s. Once again, I was ecstatic. Running down a random direction, I began my exploration of the \emph{Plane}, and much like last time, at every new point, there were $4$ directions that I chose randomly from.
+
+As I walked, a thought soon struck me. I had passed by thousands of points and I still had not returned to the Origin. Maybe I might never return? My worries were unfounded: I soon worked out that I had a $100$\% chance of returning to the Origin. Indeed, after a few hundred more points, I was back in the Origin. 
+
+Now, you might guess where I found myself next. Yes, a few days later I found myself in the center of a Sphere, and in all $6$ directions---up, down, left, right, forward, and backward---I saw a Number Line-like path extending outwards.
+
+\emph{The Hyperplane}
+
+\emph{
+With just one more dimension}
+
+\emph{
+Forever travel in random motion
+}
+
+I bounded upwards and found myself at another sphere/point with 6 exits. I ran down one (I don't know which) and repeated, and repeated, and repeated... I had again gone past a thousand points before the same existential dread crept up on me. \emph{Will I ever return?} I brushed it aside. I had a 100 percent chance of returning on the \emph{Numberline} and the \emph{Plane}, why should it be different for the \emph{Hyperplane}? 
+
+I kept going and, with every point I passed, the feeling returned bit by bit. After passing another thousand points, I began to panic. \emph{What if I would never return}?
+
+By now I had already worked out the truth. Desperately, I had been trying to prove that I had a probability of $1$ of returning. I failed every time, and soon I realized I could prove it false. 
+
+I could prove it FALSE. I may never return... 
+
+Memories of my beautiful hometown washed over me: the gentle hug of $0$-dimensions, the sublime beauty of nothing, the warm embrace of the Origin. In my mind's eye, the Origin had completely transformed. It wasn't a cage. I wasn't locked inside. Everything else was locked outside. And now I was locked outside...
+
+I now knew that the probability of returning was infinitely slim, and with every passing point, it grew smaller. The poem that accompanied the \emph{Hyperplane} now made sense. I was destined to wander forever.
+
+And so I have, and so I will be. 
+
+
+\end{document}
