@@ -1,10 +1,13 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{url}
 
 \title{Spirograph}
 \author{Nishka Kacheria}
 \date{October 2023}
+
+%% \blurb{Spirographs are something we've played with since we were kids, with two gears inside of each other.}
 
 \begin{document}
 
@@ -12,15 +15,15 @@
 
 \section{Introduction}
 \begin{center}
-\includegraphics[height=10cm]{images/Spirograph Examples.jpg}
+\includegraphics[width=4in]{images/Spirograph Examples.jpg}
 \end{center}
 
-Spirographs are something we've played with since we were kids, with two gears inside of each other. After placing your pencil in one of the gears, you would rotate the inner gear along the inner edge of the outer gear. 
+Spirographs are something we've played with since we were kids, with two gears inside of each other. After placing your pencil in one of the gears, you would rotate the inner gear along the inner edge of the outer gear.
 
 An example is shown here:
 
 \begin{center}
-\includegraphics[height=5cm]{images/Spirograph Example.png}
+\includegraphics[width=4in]{images/Spirograph Example.png}
 \end{center}
 
 There are two things we can change. We can ch2ange the number of teeth in the inner gear, and the distance from the center of the circle of the point where our pencil is located in the inner gear.
@@ -30,13 +33,13 @@ The first thing to note is that when the pencil is located at the center of the 
 However, when we start increasing the radius of the pencil on the inner circle, we get a new type of diagram. 
 
 \begin{center}
-\includegraphics[height=5cm]{images/IncreaseRad1.png}
+\includegraphics[width=4in]{images/IncreaseRad1.png}
 \end{center}
 
 Increasing the radius even more, we get 
 
 \begin{center}
-\includegraphics[height=5cm]{images/MaxRad2.png}
+\includegraphics[width=4in]{images/MaxRad2.png}
 \end{center}
 
 In terms of intuition, it seems as though when the radius of pen at the inner gear increases, the spirograph becomes less circular and begins to form spokes.
@@ -48,7 +51,7 @@ First, we can look at the number of spokes. We can define a spoke as one loop, a
 The following example is a 32 tooth gear inside of a 96 toothed gear, with a variety of different inner radii, getting the following result. 
 
 \begin{center}
-\includegraphics[height=5cm]{images/Spokes.png}
+\includegraphics[width=4in]{images/Spokes.png}
 \end{center}
 
 The most obvious trend is that there are three spokes (or three points on the edges of the triangle). Perhaps this could be due to the fact that $32 * 3 = 96.$
@@ -56,7 +59,7 @@ The most obvious trend is that there are three spokes (or three points on the ed
 We could continue looking at this with an inner-toothed gear with $64$ gears. 
 
 \begin{center}
-\includegraphics[height=5cm]{images/Gear72.png}
+\includegraphics[width=4in]{images/Gear72.png}
 \end{center}
 
 This also had $3$ spokes. 
@@ -69,7 +72,7 @@ To explain this, note that each revolution of the inner gear creates a new loop.
 
 Thus, we can guess at the shape of a spirograph based solely on the gear sizes. 
 
-Credit to https://nathanfriend.io/inspiral-web/ for the beginning diagrams. 
+Credit to \url{https://nathanfriend.io/inspiral-web} for the beginning diagrams.
 
 \section{Spirograph}
 
@@ -83,7 +86,7 @@ First, note that the rotation matrix for plotting a circle based on the unit cir
 However, we want to plot a point on the inner circle, not the outer circle. As a result, we can multiply the values of $x$ and $y$ by their distance from the origin, which would be $r_1 - r_2$ from the below diagram. 
 
 \begin{center}
-\includegraphics[height=5cm]{images/Angle Diagram (1).png}
+\includegraphics[width=4in]{images/Angle Diagram (1).png}
 \end{center}
 
 So the system of equations for the smaller circle is 
@@ -170,11 +173,16 @@ Here is a four gear spirograph, similarly derived.
 
 Its equations are
 \begin{align*}
-x = k\cos\left(t\right)-k\sin\left(t\right)\ -\ k_{2}\cos\left(ct\right)+k_{2}\sin\left(ct\right)\ +\ k_{3}\cos\left(cc_{2}t\right)-k_{3}\sin\left(cc_{2}t\right)\ -\ r_{4}\cos\left(cc_{2}c_{3}t\right)+r_{4}\sin\left(cc_{2}c_{3}t\right) \\
-y = k\sin\left(t\right)+k\cos\left(t\right)\ -\ k_{2}\sin\left(ct\right)-k_{2}\cos\left(ct\right)+k_{3}\sin\left(cc_{2}t\right)+k_{3}\cos\left(cc_{2}t\right)-r_{4}\sin\left(cc_{2}c_{3}t\right)-r_{4}\cos\left(cc_{2}c_{3}t\right) \\
+    x = &\ k\cos\left(t\right)-k\sin\left(t\right)\ -\\
+        &\ k_{2}\cos\left(ct\right)+k_{2}\sin\left(ct\right)\ +\\
+        &\ k_{3}\cos\left(cc_{2}t\right) - k_{3}\sin\left(cc_{2}t\right)\ -\\
+        &\ r_{4}\cos\left(cc_{2}c_{3}t\right)+r_{4}\sin\left(cc_{2}c_{3}t\right) \\
+    y = &\ k\sin\left(t\right)+k\cos\left(t\right)\ -\\
+        &\ k_{2}\sin\left(ct\right) - k_{2}\cos\left(ct\right) +\\
+        &\ k_{3}\sin\left(cc_{2}t\right) + k_{3}\cos\left(cc_{2}t\right)-& \\
+        &\ r_{4}\sin\left(cc_{2}c_{3}t\right)-r_{4}\cos\left(cc_{2}c_{3}t\right) \\
 \end{align*}
-We can keep going, making 5, 6, and more geared spirographs. \\ \\
-
+We can keep going, making 5, 6, and more geared spirographs.
 
 \end{document}
 
