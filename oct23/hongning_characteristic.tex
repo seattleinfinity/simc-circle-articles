@@ -25,11 +25,11 @@ Indeed, the general procedure for a homogeneous recurrence is to set the solutio
 Now, what happens if $f(n)$ is not zero, but a polynomial? Certainly, it is sometimes possible to use algebraic tricks to create a homogeneous relation. However, a sneaky method is to identify a polynomial solution to the recurrence. This solution would be the only non-exponential solution to the recurrence. Hence, by the superposition principle, the general solution is a linear combination of the homogeneous solution (pretend $f(n) = 0$) and this polynomial solution.
 
 As an example, let's return to the initial recurrence $c_n = 2c_{n-1} + n-2.$ If we were to use algebraic manipulation, we must eliminate $n-2$ from the recurrence. For instance, we may apply 
-\begin{align}
-    c_{n-1} &= 2c_{n-2} + n-3 \tag{1} \\
-    c_{n} &= 2c_{n-1} + n-2 \tag{2} \\
-    c_{n+1} &= 2c_{n} + n-1 \tag{3} 
-\end{align}
+\begin{align*}
+    c_{n-1} &= 2c_{n-2} + n-3 \quad(1) \\
+    c_{n} &= 2c_{n-1} + n-2 \quad(2) \\
+    c_{n+1} &= 2c_{n} + n-1 \quad(3)
+\end{align*}
 Now, $(3) + (1) - 2 \cdot (2)$ yields
 \[ c_{n+1}-4c_{n}+5c_{n-1}-2c_{n-2} = 0, \]
 which is homogeneous. Setting $c_n = \lambda^n$ yields
