@@ -201,7 +201,7 @@ A lot of work has been done for the Collatz conjecture, but there has not been a
 Graphing the stopping times with transitions is rather unhelpful due to the density of the lines. 
 
 \begin{centering}
-\includegraphics[width = \textwidth]{Pictures/1000 Collatz Stopping Times with Lines.png}
+\includegraphics[width = \textwidth]{images/1000 Collatz Stopping Times with Lines.png}
 \end{centering}
 
 Removing the connections between adjacent points, we can see the following graph of stopping times.
@@ -216,15 +216,15 @@ I calculated these stopping times just by running the recursive function, and wi
 
 In fact, we can predict that this pattern will probably continue to a higher number of x-values, too. It is a pretty pattern, and there seems to be a few different values that have the highest amount of stopping times - clustered around 105, and around 25. A paper by Lagarias from 1985 presents similar results for the range just beyond 1000, with a continued cluster at 23 and at 80, both different numbers in terms of primality and value. It's strange!
 
-
-\begin{centering}
-    \includegraphics[width=\textwidth]{images/Collatz Stopping Times Lagarias.png}
-\end{centering}
+% This image doesn't exist as of 2024-06-09   -William
+% \begin{centering}
+%     \includegraphics[width=\textwidth]{images/Collatz Stopping Times Lagarias.png}
+% \end{centering}
 
 To confirm the continued pattern, we can look at 10,000 datapoints. 
 
 \begin{centering}
-\includegraphics[height= 9 in]{images/10000 Collatz Stopping Times.png}
+\includegraphics[height=9in]{images/10000 Collatz Stopping Times.png}
 \end{centering}
 
 As shown in the larger figure, the pattern does continue. Taking the log of the values in the hopes that it could clarify the stopping times gives the following graph, but the graph does not have a clearer pattern. 
