@@ -16,7 +16,7 @@ One day, you find yourself in a dungeon. Looking around, you see the lock to get
 \textit{\textbf{"There are two pegs placed at coordinates $A = (3, 1)$ and $B = (8, 13)$. Point $C$ is placed on the coordinate grid such that $\triangle ABC$ is a 5-12-13 triangle, where $AB = 13, BC = 5, AC = 12$. Give the coordinates of $C$." (Note that there are four ways to place $C$. Please give the coordinates of $C$ roughly as shown in the diagram).}} \\
 
 \begin{center}
-\includegraphics[scale = 0.5]{dec23/images/A3_1.png} \\
+\includegraphics[scale = 0.5]{images/A3_1.png} \\
 \end{center}
 
 Intrigued by the puzzle, you wonder if there was a way to perform a rotation and dilation on $\overline{AB}$ such that you create $\overline{AC}$, one of the legs of the triangle. Then, it hits you: use the complex plane! The coordinates $(x, y)$ on the coordinate plane correspond to the point $x + yi$ on the complex plane. Namely, the x-value corresponds to the real component and the y-value corresponds to the imaginary component. The point $x+yi$ is written in rectangular form, and has nice properties when dealing with rotations and dilations. For examples, rotations can be dealt with using Euler's Formula.
@@ -47,7 +47,7 @@ Thus, to dilate a point $me^{\alpha i}$ such that the magnitude becomes $n$, we 
 With the power of the complex plane, we are able to rotate and then dilate $\overline{AB}$ to create $\overline{AC}$. To rotate $\overline{AB}$, we first transform $\overline{AB}$ such that $A$ lies on the origin. Otherwise, we are rotating $B$ around the origin, instead of $B$ with respect to $A$. Thus, we subtract $(3, 1)$ from all points to get that $A' = (0, 0)$ and $B' = (5, 12)$. Then, we translate this onto the complex plane to get that $A' = 0$ and $B' = 5+12i$. \\ 
 
 \begin{center}
-\includegraphics[scale = 0.5]{dec23/images/A3_2.png} \\
+\includegraphics[scale = 0.5]{images/A3_2.png} \\
 \end{center}
 
 To rotate $\overline{AB}$ to $\overline{AC}$, we need to rotate by angle $\angle{BAC}$ clockwise around the origin. Let $\angle{BAC}$ be $\theta$. Since $\angle{ACB} = 90^{\circ}$, $\cos{\theta} = \dfrac{12}{13}$ and $\sin{\theta} = \dfrac{5}{13}$. However, since we are rotating by an angle clockwise, we are multiplying by $e^{\theta i}$. On the unit circle, a negated angle has the same cosine but opposite sine. Thus, $e^{-\theta i} = \cos{\theta} - \sin{\theta} = \dfrac{12}{13} - \dfrac{5}{13}i$ . Then, we are multiplying $5 + 12i$ by $e^{-\theta i} = \dfrac{12}{13} - \dfrac{5}{13}i$. Simplifying, we get

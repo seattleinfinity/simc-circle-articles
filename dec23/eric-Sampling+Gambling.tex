@@ -29,14 +29,14 @@ The point still stands though. Sampling takes the values of a random variable an
 This might sound light right? WRONG! What if we want to sample a really disgusting random variable $X$ which has a probability density function of $f:(-2,2)\rightarrow \mathbb{R}_{>0}$:
 $$f(x)=e^{-x^4}\left(\frac{1}{2}\cos^2(x) + 3\sin^2(x)\right)$$
 \begin{center}
-    \includegraphics[width=10cm, scale=1.5]{dec23/images/ugly distribution.png}
+    \includegraphics[width=10cm, scale=1.5]{images/ugly distribution.png}
 \end{center}
 
 Remember, when we sample, we want to compile a list of values of $X$ (which are the values on the x-axis) with a frequency that matches the density function.
 
 Hmmm, this is difficult. To sample, as always, we'll have to go back to playing games. Consider creating a dart board behind this distribution, which has a length $4$, and a height $1.213$:
 \begin{center}
-    \includegraphics[width=10cm, scale=1.5]{dec23/images/ugly dartboard.png}
+    \includegraphics[width=10cm, scale=1.5]{images/ugly dartboard.png}
 \end{center}
 
 Now let's situate ourselves with a few hundred darts standing before the board. Due to how intoxicated we are, every throw lands at a uniformly random location on the rectangle. Like the monkeys we are, we begin throwing. Every time it lands above the distribution the dart bounces off and we try again. If it lands under the distribution the dart stays there. At the end we write down the x value of all the darts. Now notice that a part with a thicker distribution has a proportionally higher chance of being sampled than a thinner part, so thus we sampled the graph!
